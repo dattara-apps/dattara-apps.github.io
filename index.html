@@ -1,15 +1,418 @@
-    <!DOCTYPE html>
-    <html>
-    <head>
-        <title>DATTARA APPS| Engineering Intentionality</title>
-        <style>
-            body { background: black; color: white; font-family: monospace; display: flex; align-items: center; justify-content: center; height: 100vh; margin: 0; }
-            h1 { letter-spacing: 4px; border-right: 2px solid white; padding-right: 15px; }
-        </style>
-    </head>
-    <body>
-        <h1>DATTARA APPS</h1>
-        <p style="margin-left: 20px;">Intentionality over noise.</p>
-    </body>
-    </html>
-    
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>DATTARA APPS | Engineering Intentionality</title>
+    <style>
+        :root {
+            --bg-color: #000;
+            --text-color: #fff;
+            --accent-color: #333;
+            --secondary-text: #888;
+            --border-color: #444;
+            --dot-active: #fff;
+            --dot-inactive: #333;
+        }
+
+        body {
+            background: var(--bg-color);
+            color: var(--text-color);
+            font-family: 'Courier New', Courier, monospace;
+            margin: 0;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            min-height: 100vh;
+            overflow-x: hidden;
+        }
+
+        /* --- Header Section --- */
+        header {
+            margin-top: 60px;
+            text-align: center;
+            padding: 0 20px;
+        }
+
+        .brand-container {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin-bottom: 20px;
+        }
+
+        h1 {
+            letter-spacing: 6px;
+            border-right: 2px solid var(--text-color);
+            padding-right: 20px;
+            margin: 0;
+            font-size: 1.8rem;
+            text-transform: uppercase;
+        }
+
+        .tagline {
+            margin-left: 20px;
+            font-size: 1rem;
+            color: var(--secondary-text);
+        }
+
+        /* --- Main Content --- */
+        main {
+            width: 100%;
+            max-width: 1200px;
+            padding: 40px 0;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+        }
+
+        .app-intro {
+            text-align: center;
+            margin-bottom: 40px;
+            padding: 0 20px;
+        }
+
+        .app-name {
+            font-size: 2.5rem;
+            letter-spacing: 10px;
+            font-weight: bold;
+            display: block;
+            margin-bottom: 15px;
+        }
+
+        .app-summary {
+            color: var(--secondary-text);
+            max-width: 600px;
+            line-height: 1.6;
+            margin: 0 auto;
+        }
+
+        /* --- Feature Showcase --- */
+        .showcase-container {
+            width: 100%;
+            position: relative;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+        }
+
+        .feature-showcase {
+            width: 100%;
+            display: flex;
+            overflow-x: auto;
+            scroll-snap-type: x mandatory;
+            padding: 20px 0;
+            scrollbar-width: none;
+            -ms-overflow-style: none;
+            -webkit-overflow-scrolling: touch;
+            cursor: grab;
+        }
+
+        .feature-showcase:active { cursor: grabbing; }
+        .feature-showcase::-webkit-scrollbar { display: none; }
+
+        .feature-card {
+            flex: 0 0 300px;
+            margin: 0 20px;
+            scroll-snap-align: center;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            transition: transform 0.3s ease;
+            user-select: none;
+        }
+
+        .feature-card:first-child { margin-left: calc(50vw - 150px); }
+        .feature-card:last-child { margin-right: calc(50vw - 150px); }
+
+        .screenshot-placeholder {
+            width: 280px;
+            height: 560px;
+            background: linear-gradient(135deg, #111 0%, #222 100%);
+            border: 1px solid var(--border-color);
+            border-radius: 36px;
+            margin-bottom: 25px;
+            position: relative;
+            overflow: hidden;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            box-shadow: 0 20px 40px rgba(0,0,0,0.5);
+        }
+
+        /* Special UI for the Overlay Feature Card */
+        .overlay-demo {
+            position: absolute;
+            top: 60px;
+            right: 20px;
+            width: 80px;
+            height: 40px;
+            background: rgba(255,255,255,0.1);
+            backdrop-filter: blur(5px);
+            border: 1px solid rgba(255,255,255,0.2);
+            border-radius: 8px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 0.7rem;
+            color: #fff;
+            letter-spacing: 1px;
+            animation: float 3s ease-in-out infinite;
+        }
+
+        @keyframes float {
+            0% { transform: translateY(0px); }
+            50% { transform: translateY(-10px); }
+            100% { transform: translateY(0px); }
+        }
+
+        .feature-title {
+            font-size: 1.1rem;
+            letter-spacing: 2px;
+            font-weight: bold;
+            margin-bottom: 10px;
+            text-transform: uppercase;
+        }
+
+        .feature-description {
+            font-size: 0.85rem;
+            color: var(--secondary-text);
+            text-align: center;
+            line-height: 1.5;
+            padding: 0 10px;
+            max-width: 280px;
+        }
+
+        /* --- Pagination Dots --- */
+        .pagination-dots {
+            display: flex;
+            gap: 8px;
+            margin-top: 20px;
+            justify-content: center;
+            max-width: 90vw;
+            overflow: hidden;
+            padding: 5px;
+        }
+
+        .dot {
+            width: 6px;
+            height: 6px;
+            border-radius: 50%;
+            background-color: var(--dot-inactive);
+            transition: background-color 0.3s, transform 0.3s;
+            flex-shrink: 0;
+        }
+
+        .dot.active {
+            background-color: var(--dot-active);
+            transform: scale(1.2);
+        }
+
+        /* --- Call to Action --- */
+        .cta-section {
+            margin-top: 60px;
+            text-align: center;
+        }
+
+        .btn-coming-soon {
+            background: transparent;
+            color: var(--text-color);
+            border: 1px solid var(--text-color);
+            padding: 15px 40px;
+            font-family: inherit;
+            letter-spacing: 3px;
+            text-transform: uppercase;
+            cursor: default;
+            transition: background 0.3s, color 0.3s;
+        }
+
+        .btn-coming-soon:hover {
+            background: var(--text-color);
+            color: var(--bg-color);
+        }
+
+        footer {
+            margin-top: auto;
+            padding: 60px 40px;
+            text-align: center;
+            font-size: 0.75rem;
+            color: #555;
+            letter-spacing: 2px;
+            text-transform: uppercase;
+        }
+
+        /* Responsive Tweaks */
+        @media (max-width: 600px) {
+            .brand-container { flex-direction: column; }
+            h1 { border-right: none; border-bottom: 2px solid white; padding-right: 0; padding-bottom: 10px; margin-bottom: 10px; }
+            .tagline { margin-left: 0; }
+            .app-name { font-size: 1.8rem; }
+        }
+    </style>
+</head>
+<body>
+
+    <header>
+        <div class="brand-container">
+            <h1>DATTARA APPS</h1>
+            <p class="tagline">Intentionality over noise.</p>
+        </div>
+    </header>
+
+    <main>
+        <section class="app-intro">
+            <span class="app-name">ABSENT</span>
+            <p class="app-summary">
+                A minimalist Android launcher built to reclaim your time.
+                Experience a mobile environment engineered for focus, not friction.
+            </p>
+        </section>
+
+        <div class="showcase-container">
+            <section class="feature-showcase" id="featureShowcase">
+
+                <!-- 1. CORE: HOME SCREEN -->
+                <div class="feature-card">
+                    <div class="screenshot-placeholder"></div>
+                    <span class="feature-title">Home Screen</span>
+                    <p class="feature-description">A distraction-free interface limited to 7 slots. Designed to prioritize essential communication and intentionality.</p>
+                </div>
+
+                <!-- 2. CORE: FLOATING TIMER -->
+                <div class="feature-card">
+                    <div class="screenshot-placeholder">
+                        <div class="overlay-demo">2:45</div>
+                    </div>
+                    <span class="feature-title">Floating Timer</span>
+                    <p class="feature-description">The core intervention. A persistent overlay that enforces session limits and automatically returns you home when time expires.</p>
+                </div>
+
+                <!-- 3. CORE: BREATHING INTERVENTION -->
+                <div class="feature-card">
+                    <div class="screenshot-placeholder"></div>
+                    <span class="feature-title">Breathing</span>
+                    <p class="feature-description">Forced breathing exercises provide a moment of clarity before you enter distracting apps.</p>
+                </div>
+
+                <!-- 4. CORE: FREE TIME WINDOWS -->
+                <div class="feature-card">
+                    <div class="screenshot-placeholder"></div>
+                    <span class="feature-title">Free Time</span>
+                    <p class="feature-description">Configurable windows where focus rules are relaxed. Intelligent quota tracking manages your daily utilization.</p>
+                </div>
+
+                <!-- 5. CORE: VANISH MODE -->
+                <div class="feature-card">
+                    <div class="screenshot-placeholder"></div>
+                    <span class="feature-title">Vanish Mode</span>
+                    <p class="feature-description">Predictive friction. Automatically detects spiraling and reduces limits to break the distraction loop.</p>
+                </div>
+
+                <!-- 6. CORE: DIGITAL MANIFESTO -->
+                <div class="feature-card">
+                    <div class="screenshot-placeholder"></div>
+                    <span class="feature-title">Manifesto</span>
+                    <p class="feature-description">Your custom "Reason for Focus" is displayed directly within the timer to anchor your intent.</p>
+                </div>
+
+                <!-- 7. UI: DESIGNER THEMES -->
+                <div class="feature-card">
+                    <div class="screenshot-placeholder"></div>
+                    <span class="feature-title">Designer Themes</span>
+                    <p class="feature-description">Includes Dark, Matte Dark, Fog, and Paperback. Automatically switches based on system settings.</p>
+                </div>
+
+                <!-- 8. UI: DEBRANDING (ALIASES) -->
+                <div class="feature-card">
+                    <div class="screenshot-placeholder"></div>
+                    <span class="feature-title">Debranding</span>
+                    <p class="feature-description">Rename apps (e.g. "Instagram" → "Gallery") to strip away brand triggers and reclaim focus.</p>
+                </div>
+
+                <!-- 9. INSIGHTS: USAGE DOTS -->
+                <div class="feature-card">
+                    <div class="screenshot-placeholder"></div>
+                    <span class="feature-title">Insights</span>
+                    <p class="feature-description">Visual indicators highlight apps that exceed your daily threshold, making habit-awareness automatic.</p>
+                </div>
+
+                <!-- 10. SYSTEM: NOTIFICATION BARRING -->
+                <div class="feature-card">
+                    <div class="screenshot-placeholder"></div>
+                    <span class="feature-title">Barring</span>
+                    <p class="feature-description">Silence distractions at the source by automatically dismissing notifications from distracting apps.</p>
+                </div>
+
+                <!-- 11. SYSTEM: PRIVACY & PERMISSIONS -->
+                <div class="feature-card">
+                    <div class="screenshot-placeholder"></div>
+                    <span class="feature-title">Privacy First</span>
+                    <p class="feature-description">Zero cloud trackers. Clear, granular permissions for Usage, Overlay, and Notifications to ensure your data stays on-device.</p>
+                </div>
+
+            </section>
+
+            <div class="pagination-dots" id="paginationDots">
+                <!-- Dots will be generated by JS -->
+            </div>
+        </div>
+
+        <section class="cta-section">
+            <button class="btn-coming-soon">Coming Soon</button>
+        </section>
+    </main>
+
+    <footer>
+        &copy; 2026 DATTARA APPS. ALL RIGHTS RESERVED.
+    </footer>
+
+    <script>
+        const showcase = document.getElementById('featureShowcase');
+        const dotsContainer = document.getElementById('paginationDots');
+        const cards = document.querySelectorAll('.feature-card');
+
+        // Dynamically create dots based on card count
+        cards.forEach((_, i) => {
+            const dot = document.createElement('div');
+            dot.classList.add('dot');
+            if (i === 0) dot.classList.add('active');
+            dotsContainer.appendChild(dot);
+        });
+
+        const dots = document.querySelectorAll('.dot');
+
+        showcase.addEventListener('scroll', () => {
+            const scrollLeft = showcase.scrollLeft;
+            const cardWidth = cards[0].offsetWidth + 40;
+
+            const index = Math.round(scrollLeft / cardWidth);
+
+            dots.forEach((dot, i) => {
+                dot.classList.toggle('active', i === index);
+            });
+        });
+
+        // Mouse dragging for desktop
+        let isDown = false;
+        let startX;
+        let scrollLeft;
+
+        showcase.addEventListener('mousedown', (e) => {
+            isDown = true;
+            showcase.classList.add('active');
+            startX = e.pageX - showcase.offsetLeft;
+            scrollLeft = showcase.scrollLeft;
+        });
+        showcase.addEventListener('mouseleave', () => { isDown = false; });
+        showcase.addEventListener('mouseup', () => { isDown = false; });
+        showcase.addEventListener('mousemove', (e) => {
+            if(!isDown) return;
+            e.preventDefault();
+            const x = e.pageX - showcase.offsetLeft;
+            const walk = (x - startX) * 2;
+            showcase.scrollLeft = scrollLeft - walk;
+        });
+    </script>
+
+</body>
+</html>
