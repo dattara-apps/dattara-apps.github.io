@@ -5,8 +5,25 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
     <title>DATTARA APPS | Engineering Intentionality</title>
     <link rel="icon" type="image/svg+xml" href="svg/dattara-logo-big.svg">
+    <script>
+        // Theme initialization
+        (function() {
+            const theme = localStorage.getItem('theme') || 'light';
+            document.documentElement.setAttribute('data-theme', theme);
+        })();
+    </script>
     <style>
         :root {
+            --bg-color: #fff;
+            --text-color: #000;
+            --accent-color: #eee;
+            --secondary-text: #666;
+            --border-color: #ddd;
+            --dot-active: #000;
+            --dot-inactive: #ddd;
+        }
+
+        [data-theme="dark"] {
             --bg-color: #000;
             --text-color: #fff;
             --accent-color: #333;
@@ -33,6 +50,7 @@
             justify-content: center;
             align-items: center;
             overflow-x: hidden;
+            transition: background 0.3s, color 0.3s;
         }
 
         .app-container {
@@ -43,6 +61,7 @@
             position: relative;
             background: var(--bg-color);
             max-width: 1200px;
+            transition: background 0.3s;
         }
 
         .scroll-content {
@@ -64,7 +83,8 @@
             padding: 20px 0;
             margin-bottom: 20px;
             display: flex;
-            justify-content: flex-start;
+            justify-content: space-between;
+            align-items: center;
         }
 
         .brand-line {
@@ -72,10 +92,9 @@
             align-items: center;
             justify-content: flex-start;
             white-space: nowrap;
-            /* Aggressive scaling: font size will be 3.5% of screen width, but capped between 10px and 22px */
             font-size: clamp(10px, 3.5vw, 22px);
             width: fit-content;
-            max-width: 95vw;
+            max-width: 85vw;
         }
 
         .brand-logo {
@@ -91,10 +110,10 @@
 
         .brand-divider {
             margin: 0 12px;
-            color: var(--text-color); /* White like DATTARA APPS */
+            color: var(--text-color);
             font-weight: bold;
             display: inline-block;
-            transform: scaleY(1.4); /* Makes the divider taller */
+            transform: scaleY(1.4);
             opacity: 0.9;
         }
 
@@ -103,6 +122,27 @@
             font-weight: normal;
             letter-spacing: 1px;
             font-size: 0.85em;
+        }
+
+        /* --- Theme Toggle --- */
+        .theme-toggle {
+            background: transparent;
+            border: 1px solid var(--border-color);
+            color: var(--text-color);
+            width: 32px;
+            height: 32px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            cursor: pointer;
+            border-radius: 4px;
+            font-size: 1rem;
+            margin-left: 20px;
+            transition: all 0.3s;
+        }
+
+        .theme-toggle:hover {
+            background: var(--accent-color);
         }
 
         /* --- Main Intro --- */
@@ -172,6 +212,11 @@
             height: 2.2em;
             width: auto;
         }
+
+        /* Hide logos that don't match theme */
+        [data-theme="light"] .theme-dark-only { display: none; }
+        [data-theme="dark"] .theme-light-only { display: none; }
+
     </style>
 </head>
 <body>
@@ -181,11 +226,16 @@
             <header>
                 <div class="brand-line">
                     <div class="brand-name">
-                        <img src="svg/dattara-full.svg" alt="DATTARA APPS" class="brand-logo">
+                        <img src="svg/dattara-full-black.svg" alt="DATTARA APPS" class="brand-logo theme-light-only">
+                        <img src="svg/dattara-full.svg" alt="DATTARA APPS" class="brand-logo theme-dark-only">
                     </div>
                     <span class="brand-divider">|</span>
                     <span class="tagline">Intentionality over noise.</span>
                 </div>
+                <button class="theme-toggle" id="themeToggle" title="Toggle Theme">
+                    <span class="theme-light-only">●</span>
+                    <span class="theme-dark-only">○</span>
+                </button>
             </header>
 
             <main>
@@ -203,7 +253,8 @@
 
             <footer>
                 <div class="footer-copyright-line">
-                    <img src="svg/dattara-logo-small.svg" alt="Logo" class="footer-logo-small">
+                    <img src="svg/dattara-logo-small-black.svg" alt="Logo" class="footer-logo-small theme-light-only">
+                    <img src="svg/dattara-logo-small.svg" alt="Logo" class="footer-logo-small theme-dark-only">
                     <span>&copy; 2026 DATTARA APPS. ALL RIGHTS RESERVED.</span>
                 </div>
                 <div style="margin-top: 10px;">
@@ -216,5 +267,16 @@
         </div>
     </div>
 
+    <script>
+        const themeToggle = document.getElementById('themeToggle');
+
+        themeToggle.addEventListener('click', () => {
+            const currentTheme = document.documentElement.getAttribute('data-theme');
+            const newTheme = currentTheme === 'light' ? 'dark' : 'light';
+
+            document.documentElement.setAttribute('data-theme', newTheme);
+            localStorage.setItem('theme', newTheme);
+        });
+    </script>
 </body>
 </html>

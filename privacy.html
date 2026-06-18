@@ -5,12 +5,28 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
     <title>DATTARA APPS | Privacy Policy</title>
     <link rel="icon" type="image/svg+xml" href="svg/dattara-logo-small.svg">
+    <script>
+        // Theme initialization
+        (function() {
+            const theme = localStorage.getItem('theme') || 'light';
+            document.documentElement.setAttribute('data-theme', theme);
+        })();
+    </script>
     <style>
         :root {
+            --bg-color: #fff;
+            --text-color: #000;
+            --secondary-text: #666;
+            --accent-color: #000;
+            --border-color: #eee;
+        }
+
+        [data-theme="dark"] {
             --bg-color: #000;
             --text-color: #fff;
             --secondary-text: #888;
             --accent-color: #fff;
+            --border-color: #333;
         }
 
         body, html {
@@ -22,6 +38,7 @@
             min-height: 100vh;
             display: flex;
             justify-content: center;
+            transition: background 0.3s, color 0.3s;
         }
 
         .container {
@@ -33,8 +50,11 @@
 
         header {
             margin-bottom: 40px;
-            border-bottom: 1px solid #333;
+            border-bottom: 1px solid var(--border-color);
             padding-bottom: 20px;
+            display: flex;
+            justify-content: space-between;
+            align-items: flex-end;
         }
 
         .brand-line {
@@ -70,6 +90,26 @@
             font-weight: normal;
             letter-spacing: 1px;
             font-size: 0.85em;
+        }
+
+        /* --- Theme Toggle --- */
+        .theme-toggle {
+            background: transparent;
+            border: 1px solid var(--border-color);
+            color: var(--text-color);
+            width: 28px;
+            height: 28px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            cursor: pointer;
+            border-radius: 4px;
+            font-size: 0.8rem;
+            transition: all 0.3s;
+        }
+
+        .theme-toggle:hover {
+            background: var(--border-color);
         }
 
         h1 {
@@ -115,7 +155,7 @@
         footer {
             margin-top: 60px;
             padding-top: 20px;
-            border-top: 1px solid #333;
+            border-top: 1px solid var(--border-color);
             text-align: center;
             font-size: 0.7rem;
             color: #444;
@@ -149,20 +189,31 @@
             font-size: 0.8rem;
             color: var(--secondary-text);
         }
+
+        /* Hide logos that don't match theme */
+        [data-theme="light"] .theme-dark-only { display: none; }
+        [data-theme="dark"] .theme-light-only { display: none; }
     </style>
 </head>
 <body>
 
     <div class="container">
         <header>
-            <a href="index.html" class="back-link">← BACK</a>
-            <div class="brand-line">
-                <div class="brand-name">
-                    <img src="svg/dattara-full.svg" alt="DATTARA APPS" class="brand-logo">
+            <div>
+                <a href="index.html" class="back-link">← BACK</a>
+                <div class="brand-line">
+                    <div class="brand-name">
+                        <img src="svg/dattara-full-black.svg" alt="DATTARA APPS" class="brand-logo theme-light-only">
+                        <img src="svg/dattara-full.svg" alt="DATTARA APPS" class="brand-logo theme-dark-only">
+                    </div>
+                    <span class="brand-divider">|</span>
+                    <span class="tagline">Intentionality over noise.</span>
                 </div>
-                <span class="brand-divider">|</span>
-                <span class="tagline">Intentionality over noise.</span>
             </div>
+            <button class="theme-toggle" id="themeToggle" title="Toggle Theme">
+                <span class="theme-light-only">●</span>
+                <span class="theme-dark-only">○</span>
+            </button>
         </header>
 
         <main>
@@ -226,11 +277,23 @@
 
         <footer>
             <div class="footer-copyright-line">
-                <img src="svg/dattara-logo-small.svg" alt="Logo" class="footer-logo-small">
+                <img src="svg/dattara-logo-small-black.svg" alt="Logo" class="footer-logo-small theme-light-only">
+                <img src="svg/dattara-logo-small.svg" alt="Logo" class="footer-logo-small theme-dark-only">
                 <span>&copy; 2026 DATTARA APPS. ALL RIGHTS RESERVED.</span>
             </div>
         </footer>
     </div>
 
+    <script>
+        const themeToggle = document.getElementById('themeToggle');
+
+        themeToggle.addEventListener('click', () => {
+            const currentTheme = document.documentElement.getAttribute('data-theme');
+            const newTheme = currentTheme === 'light' ? 'dark' : 'light';
+
+            document.documentElement.setAttribute('data-theme', newTheme);
+            localStorage.setItem('theme', newTheme);
+        });
+    </script>
 </body>
 </html>
