@@ -4,6 +4,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
     <title>DATTARA APPS | Privacy Policy</title>
+    <link rel="icon" type="image/svg+xml" href="svg/dattara-logo-small.svg">
     <style>
         :root {
             --bg-color: #000;
@@ -36,11 +37,39 @@
             padding-bottom: 20px;
         }
 
+        .brand-line {
+            display: flex;
+            align-items: center;
+            justify-content: flex-start;
+            white-space: nowrap;
+            font-size: clamp(10px, 3.5vw, 18px);
+        }
+
+        .brand-logo {
+            height: 1.2em;
+            width: auto;
+            display: block;
+        }
+
         .brand-name {
+            display: flex;
+            align-items: center;
+        }
+
+        .brand-divider {
+            margin: 0 10px;
+            color: var(--text-color);
             font-weight: bold;
-            letter-spacing: 2px;
-            text-transform: uppercase;
-            font-size: 1.2rem;
+            display: inline-block;
+            transform: scaleY(1.4);
+            opacity: 0.9;
+        }
+
+        .tagline {
+            color: var(--secondary-text);
+            font-weight: normal;
+            letter-spacing: 1px;
+            font-size: 0.75em;
         }
 
         h1 {
@@ -90,6 +119,22 @@
             text-align: center;
             font-size: 0.7rem;
             color: #444;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+        }
+
+        .footer-copyright-line {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 8px;
+            opacity: 0.6;
+        }
+
+        .footer-logo-small {
+            height: 2.2em;
+            width: auto;
         }
 
         a {
@@ -111,7 +156,13 @@
     <div class="container">
         <header>
             <a href="index.html" class="back-link">← BACK</a>
-            <div class="brand-name">DATTARA APPS</div>
+            <div class="brand-line">
+                <div class="brand-name">
+                    <img src="svg/dattara-full.svg" alt="DATTARA APPS" class="brand-logo">
+                </div>
+                <span class="brand-divider">|</span>
+                <span class="tagline">Intentionality over noise.</span>
+            </div>
         </header>
 
         <main>
@@ -174,7 +225,10 @@
         </main>
 
         <footer>
-            <div>&copy; 2026 DATTARA APPS. ALL RIGHTS RESERVED.</div>
+            <div class="footer-copyright-line">
+                <img src="svg/dattara-logo-small.svg" alt="Logo" class="footer-logo-small">
+                <span>&copy; 2026 DATTARA APPS. ALL RIGHTS RESERVED.</span>
+            </div>
         </footer>
     </div>
 

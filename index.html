@@ -4,6 +4,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
     <title>DATTARA APPS | Engineering Intentionality</title>
+    <link rel="icon" type="image/svg+xml" href="svg/dattara-logo-big.svg">
     <style>
         :root {
             --bg-color: #000;
@@ -77,10 +78,15 @@
             max-width: 95vw;
         }
 
+        .brand-logo {
+            height: 1.4em;
+            width: auto;
+            display: block;
+        }
+
         .brand-name {
-            font-weight: bold;
-            letter-spacing: 2px;
-            text-transform: uppercase;
+            display: flex;
+            align-items: center;
         }
 
         .brand-divider {
@@ -96,6 +102,7 @@
             color: var(--secondary-text);
             font-weight: normal;
             letter-spacing: 1px;
+            font-size: 0.75em;
         }
 
         /* --- Main Intro --- */
@@ -148,6 +155,22 @@
             color: #444;
             letter-spacing: 1px;
             width: 100%;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+        }
+
+        .footer-copyright-line {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 8px;
+            opacity: 0.6;
+        }
+
+        .footer-logo-small {
+            height: 2.2em;
+            width: auto;
         }
     </style>
 </head>
@@ -157,7 +180,9 @@
         <div class="scroll-content">
             <header>
                 <div class="brand-line">
-                    <span class="brand-name">DATTARA APPS</span>
+                    <div class="brand-name">
+                        <img src="svg/dattara-full.svg" alt="DATTARA APPS" class="brand-logo">
+                    </div>
                     <span class="brand-divider">|</span>
                     <span class="tagline">Intentionality over noise.</span>
                 </div>
@@ -177,7 +202,10 @@
             </main>
 
             <footer>
-                <div>&copy; 2026 DATTARA APPS. ALL RIGHTS RESERVED.</div>
+                <div class="footer-copyright-line">
+                    <img src="svg/dattara-logo-small.svg" alt="Logo" class="footer-logo-small">
+                    <span>&copy; 2026 DATTARA APPS. ALL RIGHTS RESERVED.</span>
+                </div>
                 <div style="margin-top: 10px;">
                     <a href="mailto:contact@dattara.app" style="color: inherit; text-decoration: none; border-bottom: 1px solid #444;">contact@dattara.app</a>
                 </div>
