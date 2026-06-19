@@ -20,15 +20,17 @@
             --bg-color: #fff;
             --text-color: #000;
             --secondary-text: #666;
-            --border-color: #eee;
+            --accent-color: #f6f8fa;
         }
 
         [data-theme="dark"] {
             --bg-color: #000;
             --text-color: #fff;
             --secondary-text: #888;
-            --border-color: #333;
+            --accent-color: #0d1117;
         }
+
+        * { box-sizing: border-box; }
 
         body, html {
             background: var(--bg-color);
@@ -42,44 +44,113 @@
             flex-direction: column;
             justify-content: center;
             align-items: center;
-            text-align: center;
-            transition: background 0.3s, color 0.3s;
+            overflow: hidden;
+            transition: background 0.3s;
         }
 
-        .error-code {
-            font-size: clamp(3rem, 15vw, 6rem);
-            letter-spacing: 15px;
-            margin: 0;
-            opacity: 0.5;
+        .container {
+            text-align: center;
+            padding: 20px;
+            z-index: 1;
+        }
+
+        .logo-container {
+            position: relative;
+            margin-bottom: 30px;
+            animation: float 6s ease-in-out infinite;
+        }
+
+        @keyframes float {
+            0% { transform: translateY(0px); }
+            50% { transform: translateY(-20px); }
+            100% { transform: translateY(0px); }
+        }
+
+        .big-logo {
+            width: clamp(180px, 40vw, 300px);
+            height: auto;
+            opacity: 0.9;
+        }
+
+        .error-content {
+            background: var(--bg-color);
+            padding: 20px;
+        }
+
+        .error-title {
+            font-size: 1.5rem;
+            margin: 10px 0 20px;
+            font-weight: normal;
         }
 
         .error-msg {
-            font-size: 1rem;
+            font-size: 0.9rem;
             color: var(--secondary-text);
-            margin: 20px 0 40px 0;
-            max-width: 300px;
+            max-width: 400px;
+            margin: 0 auto 40px;
+            line-height: 1.6;
         }
 
-        .back-home {
+        .nav-links {
+            display: flex;
+            gap: 20px;
+            justify-content: center;
+        }
+
+        .btn {
             border: 1px solid var(--text-color);
             color: var(--text-color);
-            padding: 10px 25px;
+            padding: 12px 24px;
             text-decoration: none;
             font-size: 0.8rem;
-            letter-spacing: 2px;
+            letter-spacing: 1px;
             text-transform: uppercase;
-            transition: all 0.3s;
+            transition: all 0.2s;
+            border-radius: 4px;
         }
 
-        .back-home:hover {
+        .btn:hover {
             background: var(--text-color);
             color: var(--bg-color);
         }
+
+        .background-decoration {
+            position: absolute;
+            font-size: 25vw;
+            font-weight: bold;
+            opacity: 0.03;
+            user-select: none;
+            pointer-events: none;
+            z-index: 0;
+            color: var(--text-color);
+        }
+
+        /* Hide logos that don't match theme */
+        [data-theme="light"] .theme-dark-only { display: none; }
+        [data-theme="dark"] .theme-light-only { display: none; }
     </style>
 </head>
 <body>
-    <h1 class="error-code">404</h1>
-    <p class="error-msg">The page you're looking for has been intentionally removed or never existed.</p>
-    <a href="index.html" class="back-home">Return Home</a>
+    <div class="background-decoration">404</div>
+
+    <div class="container">
+        <div class="logo-container">
+            <img src="svg/dattara-logo-big.svg" alt="Dattara" class="big-logo theme-dark-only">
+            <img src="svg/dattara-logo-big.svg" alt="Dattara" class="big-logo theme-light-only" style="filter: invert(1);">
+        </div>
+
+        <div class="error-content">
+            <h1 class="error-title">This is not the page you are looking for.</h1>
+            <p class="error-msg">
+                The requested URL was not found on this server. <br>
+                It may have been intentionally removed to reduce digital noise.
+            </p>
+
+            <div class="nav-links">
+                <a href="index.html" class="btn">Back Home</a>
+                <a href="privacy.html" class="btn">Privacy</a>
+            </div>
+        </div>
+    </div>
 </body>
 </html>
