@@ -2,14 +2,19 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
-    <title>DATTARA APPS | Privacy Policy</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Dattara Apps | Privacy Policy</title>
     <link rel="icon" type="image/svg+xml" href="svg/dattara-logo-small.svg">
     <script>
-        // Theme initialization
+        // Theme initialization - robust and crash-free
         (function() {
-            const theme = localStorage.getItem('theme') || 'dark';
-            document.documentElement.setAttribute('data-theme', theme);
+            try {
+                const theme = localStorage.getItem('theme') || 'dark';
+                document.documentElement.setAttribute('data-theme', theme);
+            } catch (e) {
+                // Fallback for private mode/restricted storage
+                document.documentElement.setAttribute('data-theme', 'dark');
+            }
         })();
     </script>
     <style>
@@ -36,9 +41,13 @@
             margin: 0;
             padding: 0;
             min-height: 100vh;
+            min-height: 100dvh;
             display: flex;
             justify-content: center;
             transition: background 0.3s, color 0.3s;
+            text-rendering: optimizeLegibility;
+            -webkit-font-smoothing: antialiased;
+            -moz-osx-font-smoothing: grayscale;
         }
 
         .container {
@@ -55,6 +64,7 @@
             display: flex;
             justify-content: space-between;
             align-items: flex-end;
+            gap: 15px;
         }
 
         .brand-line {
@@ -63,17 +73,20 @@
             justify-content: flex-start;
             white-space: nowrap;
             font-size: clamp(10px, 3.5vw, 18px);
+            min-width: 0;
         }
 
         .brand-logo {
             height: 2.2em;
             width: auto;
             display: block;
+            flex-shrink: 0;
         }
 
         .brand-name {
             display: flex;
             align-items: center;
+            min-width: 0;
         }
 
         .brand-divider {
@@ -83,6 +96,7 @@
             display: inline-block;
             transform: scaleY(1.4);
             opacity: 0.9;
+            flex-shrink: 0;
         }
 
         .tagline {
@@ -90,6 +104,8 @@
             font-weight: normal;
             letter-spacing: 1px;
             font-size: 0.85em;
+            overflow: hidden;
+            text-overflow: ellipsis;
         }
 
         /* --- Theme Toggle --- */
@@ -97,19 +113,31 @@
             background: transparent;
             border: 1px solid var(--border-color);
             color: var(--text-color);
-            width: 28px;
-            height: 28px;
+            width: 44px;
+            height: 44px;
             display: flex;
             align-items: center;
             justify-content: center;
             cursor: pointer;
-            border-radius: 4px;
-            font-size: 0.8rem;
-            transition: all 0.3s;
+            border-radius: 8px;
+            font-size: 1.1rem;
+            transition: all 0.2s;
+            flex-shrink: 0;
         }
 
-        .theme-toggle:hover {
+        .theme-toggle:active {
+            transform: scale(0.95);
             background: var(--border-color);
+        }
+
+        .back-link {
+            display: inline-flex;
+            align-items: center;
+            height: 44px;
+            margin-bottom: 10px;
+            font-size: 0.8rem;
+            color: var(--secondary-text);
+            text-decoration: none;
         }
 
         h1 {
@@ -158,7 +186,7 @@
             border-top: 1px solid var(--border-color);
             text-align: center;
             font-size: 0.7rem;
-            color: #444;
+            color: var(--secondary-text);
             display: flex;
             flex-direction: column;
             align-items: center;
@@ -183,11 +211,16 @@
             border-bottom: 1px solid #444;
         }
 
-        .back-link {
-            display: block;
-            margin-bottom: 20px;
-            font-size: 0.8rem;
-            color: var(--secondary-text);
+        @media (max-width: 480px) {
+            .brand-divider, .tagline {
+                display: none;
+            }
+            .container {
+                padding: 20px 15px;
+            }
+            header {
+                align-items: center;
+            }
         }
 
         /* Hide logos that don't match theme */
@@ -203,8 +236,8 @@
                 <a href="index.html" class="back-link">← BACK</a>
                 <div class="brand-line">
                     <div class="brand-name">
-                        <img src="svg/dattara-full-black.svg" alt="DATTARA APPS" class="brand-logo theme-light-only">
-                        <img src="svg/dattara-full.svg" alt="DATTARA APPS" class="brand-logo theme-dark-only">
+                        <img src="svg/dattara-full-black.svg" alt="DATTARA APPS" class="brand-logo theme-light-only" decoding="async">
+                        <img src="svg/dattara-full.svg" alt="DATTARA APPS" class="brand-logo theme-dark-only" decoding="async">
                     </div>
                     <span class="brand-divider">|</span>
                     <span class="tagline">Intentionality over noise.</span>
@@ -277,22 +310,29 @@
 
         <footer>
             <div class="footer-copyright-line">
-                <img src="svg/dattara-logo-small-black.svg" alt="Logo" class="footer-logo-small theme-light-only">
-                <img src="svg/dattara-logo-small.svg" alt="Logo" class="footer-logo-small theme-dark-only">
+                <img src="svg/dattara-logo-small-black.svg" alt="Logo" class="footer-logo-small theme-light-only" loading="lazy" decoding="async">
+                <img src="svg/dattara-logo-small.svg" alt="Logo" class="footer-logo-small theme-dark-only" loading="lazy" decoding="async">
                 <span>&copy; 2026 DATTARA APPS. ALL RIGHTS RESERVED.</span>
             </div>
         </footer>
     </div>
 
     <script>
-        const themeToggle = document.getElementById('themeToggle');
+        document.addEventListener('DOMContentLoaded', () => {
+            const themeToggle = document.getElementById('themeToggle');
+            if (!themeToggle) return;
 
-        themeToggle.addEventListener('click', () => {
-            const currentTheme = document.documentElement.getAttribute('data-theme');
-            const newTheme = currentTheme === 'light' ? 'dark' : 'light';
+            themeToggle.addEventListener('click', () => {
+                try {
+                    const currentTheme = document.documentElement.getAttribute('data-theme');
+                    const newTheme = currentTheme === 'light' ? 'dark' : 'light';
 
-            document.documentElement.setAttribute('data-theme', newTheme);
-            localStorage.setItem('theme', newTheme);
+                    document.documentElement.setAttribute('data-theme', newTheme);
+                    localStorage.setItem('theme', newTheme);
+                } catch (e) {
+                    console.error('Failed to save theme preference:', e);
+                }
+            });
         });
     </script>
 </body>
