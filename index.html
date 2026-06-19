@@ -4,6 +4,22 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Dattara Apps | Engineering Intentionality</title>
+    <meta name="description" content="Dattara Apps: Minimalist Android tools engineered to reclaim your time and focus. Reclaim your digital intentionality.">
+
+    <!-- Open Graph / Facebook -->
+    <meta property="og:type" content="website">
+    <meta property="og:url" content="https://dattara.app/">
+    <meta property="og:title" content="Dattara Apps | Engineering Intentionality">
+    <meta property="og:description" content="A minimalist Android launcher engineered to reclaim your time.">
+    <meta property="og:image" content="https://dattara.app/svg/dattara-logo-big.svg">
+
+    <!-- Twitter -->
+    <meta property="twitter:card" content="summary_large_image">
+    <meta property="twitter:url" content="https://dattara.app/">
+    <meta property="twitter:title" content="Dattara Apps | Engineering Intentionality">
+    <meta property="twitter:description" content="A minimalist Android launcher engineered to reclaim your time.">
+    <meta property="twitter:image" content="https://dattara.app/svg/dattara-logo-big.svg">
+
     <link rel="icon" type="image/svg+xml" href="svg/dattara-logo-big.svg">
     <script>
         // Theme initialization - robust and crash-free
@@ -216,7 +232,14 @@
             text-transform: uppercase;
             font-size: 0.9rem;
             transition: all 0.3s;
-            cursor: default;
+            cursor: pointer;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .btn-coming-soon:hover {
+            background: var(--text-color);
+            color: var(--bg-color);
         }
 
         footer {

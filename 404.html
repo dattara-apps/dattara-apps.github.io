@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>404 | Dattara Apps</title>
+    <link rel="icon" type="image/svg+xml" href="svg/dattara-logo-small.svg">
+    <script>
+        (function() {
+            try {
+                const theme = localStorage.getItem('theme') || 'dark';
+                document.documentElement.setAttribute('data-theme', theme);
+            } catch (e) {
+                document.documentElement.setAttribute('data-theme', 'dark');
+            }
+        })();
+    </script>
+    <style>
+        :root {
+            --bg-color: #fff;
+            --text-color: #000;
+            --secondary-text: #666;
+            --border-color: #eee;
+        }
+
+        [data-theme="dark"] {
+            --bg-color: #000;
+            --text-color: #fff;
+            --secondary-text: #888;
+            --border-color: #333;
+        }
+
+        body, html {
+            background: var(--bg-color);
+            color: var(--text-color);
+            font-family: 'Courier New', Courier, monospace;
+            margin: 0;
+            padding: 0;
+            height: 100vh;
+            height: 100dvh;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            text-align: center;
+            transition: background 0.3s, color 0.3s;
+        }
+
+        .error-code {
+            font-size: clamp(3rem, 15vw, 6rem);
+            letter-spacing: 15px;
+            margin: 0;
+            opacity: 0.5;
+        }
+
+        .error-msg {
+            font-size: 1rem;
+            color: var(--secondary-text);
+            margin: 20px 0 40px 0;
+            max-width: 300px;
+        }
+
+        .back-home {
+            border: 1px solid var(--text-color);
+            color: var(--text-color);
+            padding: 10px 25px;
+            text-decoration: none;
+            font-size: 0.8rem;
+            letter-spacing: 2px;
+            text-transform: uppercase;
+            transition: all 0.3s;
+        }
+
+        .back-home:hover {
+            background: var(--text-color);
+            color: var(--bg-color);
+        }
+    </style>
+</head>
+<body>
+    <h1 class="error-code">404</h1>
+    <p class="error-msg">The page you're looking for has been intentionally removed or never existed.</p>
+    <a href="index.html" class="back-home">Return Home</a>
+</body>
+</html>
