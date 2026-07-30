@@ -3,32 +3,35 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Dattara Apps | Engineering Intentionality</title>
-    <meta name="description" content="Dattara Apps: Minimalist Android tools engineered to reclaim your time and focus. Reclaim your digital intentionality.">
+    <title>Absent | Minimalist launcher.</title>
+    <meta name="description" content="Absent: A minimalist Android launcher by Dattara Apps, engineered for intentionality over noise.">
 
     <!-- Open Graph / Facebook -->
     <meta property="og:type" content="website">
-    <meta property="og:url" content="https://dattara.app/">
-    <meta property="og:title" content="Dattara Apps | Engineering Intentionality">
+    <meta property="og:url" content="https://dattara.app/absent/">
+    <meta property="og:title" content="Absent | Minimalist launcher.">
     <meta property="og:description" content="A minimalist Android launcher engineered to reclaim your time.">
-    <meta property="og:image" content="https://dattara.app/svg/dattara-logo-big.svg">
+    <meta property="og:image" content="https://dattara.app/svg/absent.svg">
 
     <!-- Twitter -->
     <meta property="twitter:card" content="summary_large_image">
-    <meta property="twitter:url" content="https://dattara.app/">
-    <meta property="twitter:title" content="Dattara Apps | Engineering Intentionality">
+    <meta property="twitter:url" content="https://dattara.app/absent/">
+    <meta property="twitter:title" content="Absent | Minimalist launcher.">
     <meta property="twitter:description" content="A minimalist Android launcher engineered to reclaim your time.">
-    <meta property="twitter:image" content="https://dattara.app/svg/dattara-logo-big.svg">
+    <meta property="twitter:image" content="https://dattara.app/svg/absent.svg">
 
-    <link rel="icon" type="image/svg+xml" href="svg/dattara-logo-big.svg">
+    <link rel="icon" type="image/svg+xml" href="../svg/absent.svg" id="favicon">
     <script>
-        // Theme initialization - robust and crash-free
         (function() {
             try {
                 const theme = localStorage.getItem('theme') || 'dark';
                 document.documentElement.setAttribute('data-theme', theme);
+                // Set initial favicon
+                const favicon = document.getElementById('favicon');
+                if (favicon) {
+                    favicon.href = theme === 'light' ? '../svg/absent-black.svg' : '../svg/absent-black.svg';
+                }
             } catch (e) {
-                // Fallback for private mode/restricted storage
                 document.documentElement.setAttribute('data-theme', 'dark');
             }
         })();
@@ -137,6 +140,14 @@
             display: flex;
             align-items: center;
             min-width: 0;
+            gap: 10px;
+            text-decoration: none;
+            color: inherit;
+        }
+
+        .brand-text {
+            font-weight: bold;
+            letter-spacing: 2px;
         }
 
         .brand-divider {
@@ -294,17 +305,17 @@
     </style>
 </head>
 <body>
-
     <div class="app-container">
         <div class="scroll-content">
             <header>
                 <div class="brand-line">
-                    <div class="brand-name">
-                        <img src="svg/dattara-full-black.svg" alt="DATTARA APPS" class="brand-logo theme-light-only" decoding="async">
-                        <img src="svg/dattara-full.svg" alt="DATTARA APPS" class="brand-logo theme-dark-only" decoding="async" fetchpriority="high">
-                    </div>
+                    <a href="/" class="brand-name">
+                        <img src="../svg/absent-black.svg" alt="ABSENT" class="brand-logo theme-light-only" decoding="async">
+                        <img src="../svg/absent.svg" alt="ABSENT" class="brand-logo theme-dark-only" decoding="async">
+                        <span class="brand-text">ABSENT</span>
+                    </a>
                     <span class="brand-divider">|</span>
-                    <span class="tagline">Intentionality over noise.</span>
+                    <span class="tagline">Minimalist launcher.</span>
                 </div>
                 <button class="theme-toggle" id="themeToggle" title="Toggle Theme">
                     <span class="theme-light-only">●</span>
@@ -314,7 +325,7 @@
 
             <main>
                 <section class="app-intro">
-                    <span class="app-name">UNVEILING</span>
+                    <span class="app-name">ABSENT</span>
                     <p class="app-summary">
                         A minimalist Android launcher engineered to reclaim your time.
                     </p>
@@ -349,15 +360,15 @@
                     </a>
                 </div>
                 <div class="footer-copyright-line">
-                    <img src="svg/dattara-logo-small-black.svg" alt="Logo" class="footer-logo-small theme-light-only" loading="lazy" decoding="async">
-                    <img src="svg/dattara-logo-small.svg" alt="Logo" class="footer-logo-small theme-dark-only" loading="lazy" decoding="async">
+                    <img src="../svg/dattara-logo-small-black.svg" alt="Logo" class="footer-logo-small theme-light-only" loading="lazy" decoding="async">
+                    <img src="../svg/dattara-logo-small.svg" alt="Logo" class="footer-logo-small theme-dark-only" loading="lazy" decoding="async">
                     <span>&copy; 2026 DATTARA APPS. ALL RIGHTS RESERVED.</span>
                 </div>
                 <div style="margin-top: 10px;">
                     <a href="mailto:contact@dattara.app" style="color: inherit; text-decoration: none; border-bottom: 1px solid #444;">contact@dattara.app</a>
                 </div>
                 <div style="margin-top: 10px; display: flex; gap: 20px; justify-content: center;">
-                    <a href="privacy.html" style="color: #666; text-decoration: none; font-size: 0.6rem; letter-spacing: 1px;">DATTARA PRIVACY</a>
+                    <a href="privacy" style="color: #666; text-decoration: none; font-size: 0.6rem; letter-spacing: 1px;">ABSENT PRIVACY</a>
                 </div>
             </footer>
         </div>
@@ -375,6 +386,12 @@
 
                     document.documentElement.setAttribute('data-theme', newTheme);
                     localStorage.setItem('theme', newTheme);
+
+                    // Update favicon
+                    const favicon = document.getElementById('favicon');
+                    if (favicon) {
+                        favicon.href = newTheme === 'light' ? '../svg/absent-black.svg' : '../svg/absent-black.svg';
+                    }
                 } catch (e) {
                     console.error('Failed to save theme preference:', e);
                 }

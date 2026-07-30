@@ -1,0 +1,385 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Dattara Apps | Absent Privacy Policy</title>
+    <meta name="description" content="Privacy Policy for Absent by Dattara Apps. We value your focus and privacy.">
+    <link rel="icon" type="image/svg+xml" href="../../svg/dattara-logo-small.svg">
+    <script>
+        (function() {
+            try {
+                const theme = localStorage.getItem('theme') || 'dark';
+                document.documentElement.setAttribute('data-theme', theme);
+            } catch (e) {
+                document.documentElement.setAttribute('data-theme', 'dark');
+            }
+        })();
+    </script>
+    <style>
+        :root {
+            --bg-color: #fff;
+            --text-color: #000;
+            --accent-color: #eee;
+            --secondary-text: #666;
+            --border-color: #ddd;
+            --dot-active: #000;
+            --dot-inactive: #ddd;
+        }
+
+        [data-theme="dark"] {
+            --bg-color: #000;
+            --text-color: #fff;
+            --accent-color: #333;
+            --secondary-text: #888;
+            --border-color: #444;
+            --dot-active: #fff;
+            --dot-inactive: #333;
+        }
+
+        * {
+            box-sizing: border-box;
+            -webkit-tap-highlight-color: transparent;
+        }
+
+        body, html {
+            background: var(--bg-color);
+            color: var(--text-color);
+            font-family: 'Courier New', Courier, monospace;
+            margin: 0;
+            padding: 0;
+            min-height: 100vh;
+            min-height: 100dvh;
+            width: 100%;
+            display: flex;
+            justify-content: center;
+            transition: background 0.3s, color 0.3s;
+            text-rendering: optimizeLegibility;
+            -webkit-font-smoothing: antialiased;
+            -moz-osx-font-smoothing: grayscale;
+        }
+
+        .app-container {
+            width: 100%;
+            height: 100vh;
+            height: 100dvh;
+            display: flex;
+            flex-direction: column;
+            position: relative;
+            background: var(--bg-color);
+            max-width: 1200px;
+            transition: background 0.3s;
+            contain: content;
+        }
+
+        .scroll-content {
+            flex: 1;
+            overflow-y: auto;
+            overflow-x: hidden;
+            padding: 20px 10px;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            scrollbar-width: none;
+            -webkit-overflow-scrolling: touch;
+        }
+
+        .scroll-content::-webkit-scrollbar { display: none; }
+
+        header {
+            width: 100%;
+            padding: 20px 0;
+            margin-bottom: 20px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            gap: 15px;
+        }
+
+        .brand-link {
+            display: flex;
+            align-items: center;
+            text-decoration: none;
+            color: inherit;
+            transition: opacity 0.2s;
+            flex: 1;
+            min-width: 0;
+        }
+
+        .brand-link:hover {
+            opacity: 0.8;
+        }
+
+        .brand-line {
+            display: flex;
+            align-items: center;
+            justify-content: flex-start;
+            white-space: nowrap;
+            font-size: clamp(10px, 3.5vw, 22px);
+            flex: 1;
+            min-width: 0;
+        }
+
+        .brand-logo {
+            height: 2.2em;
+            width: auto;
+            display: block;
+            flex-shrink: 0;
+        }
+
+        .brand-divider {
+            margin: 0 10px;
+            color: var(--text-color);
+            font-weight: bold;
+            display: inline-block;
+            transform: scaleY(1.4);
+            opacity: 0.9;
+            flex-shrink: 0;
+        }
+
+        .tagline {
+            color: var(--secondary-text);
+            font-weight: normal;
+            letter-spacing: 1px;
+            font-size: 0.85em;
+            overflow: hidden;
+            text-overflow: ellipsis;
+        }
+
+        .theme-toggle {
+            background: transparent;
+            border: 1px solid var(--border-color);
+            color: var(--text-color);
+            width: 44px;
+            height: 44px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            cursor: pointer;
+            border-radius: 8px;
+            font-size: 1.2rem;
+            transition: all 0.2s;
+            flex-shrink: 0;
+        }
+
+        .theme-toggle:active {
+            transform: scale(0.95);
+            background: var(--accent-color);
+        }
+
+        .privacy-content {
+            max-width: 800px;
+            width: 100%;
+            line-height: 1.6;
+            margin: 40px 0;
+        }
+
+        h1 {
+            font-size: 1.5rem;
+            font-weight: normal;
+            margin-top: 40px;
+            color: var(--text-color);
+            letter-spacing: 1px;
+            text-transform: uppercase;
+        }
+
+        h2 {
+            font-size: 1.1rem;
+            font-weight: normal;
+            margin-top: 30px;
+            color: var(--text-color);
+        }
+
+        section {
+            margin-bottom: 30px;
+        }
+
+        p {
+            color: var(--secondary-text);
+            font-size: 0.9rem;
+        }
+
+        ul {
+            color: var(--secondary-text);
+            font-size: 0.9rem;
+            list-style-type: none;
+            padding-left: 0;
+        }
+
+        li {
+            margin-bottom: 15px;
+        }
+
+        .highlight {
+            color: var(--text-color);
+            font-weight: bold;
+        }
+
+        footer {
+            padding: 30px 20px;
+            text-align: center;
+            font-size: 0.65rem;
+            color: var(--secondary-text);
+            letter-spacing: 1px;
+            width: 100%;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+        }
+
+        .footer-copyright-line {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 8px;
+            opacity: 0.6;
+        }
+
+        .footer-logo-small {
+            height: 2.2em;
+            width: auto;
+        }
+
+        a {
+            color: inherit;
+            text-decoration: none;
+            border-bottom: none;
+        }
+
+        @media (max-width: 480px) {
+            .brand-divider, .tagline {
+                display: none;
+            }
+            .brand-line {
+                font-size: 18px;
+            }
+            header {
+                padding: 15px 0;
+            }
+        }
+
+        [data-theme="light"] .theme-dark-only { display: none; }
+        [data-theme="dark"] .theme-light-only { display: none; }
+    </style>
+</head>
+<body>
+    <div class="app-container">
+        <div class="scroll-content">
+            <header>
+                <a href="../../index.html" class="brand-link">
+                    <div class="brand-line">
+                        <div class="brand-name">
+                            <img src="../../svg/dattara-full-black.svg" alt="DATTARA APPS" class="brand-logo theme-light-only" decoding="async">
+                            <img src="../../svg/dattara-full.svg" alt="DATTARA APPS" class="brand-logo theme-dark-only" decoding="async">
+                        </div>
+                        <span class="brand-divider">|</span>
+                        <span class="tagline">Engineering Intentionality.</span>
+                    </div>
+                </a>
+                <button class="theme-toggle" id="themeToggle" title="Toggle Theme">
+                    <span class="theme-light-only">●</span>
+                    <span class="theme-dark-only">○</span>
+                </button>
+            </header>
+
+            <main class="privacy-content">
+                <h1>ABSENT Privacy Policy</h1>
+                <p style="font-size: 0.75rem;">Effective Date: July 2, 2026</p>
+
+                <section>
+                    <p>
+                        We believe your focus is your most valuable asset. Our tools are designed to help you reclaim your time, not exploit it. <span class="highlight">We do not actively collect, store, or transmit personally identifiable information from your device.</span> This Privacy Policy explains how we handle your data.
+                    </p>
+                </section>
+
+                <section>
+                    <h2>1. Information Collection</h2>
+                    <p>To provide core focus features, our applications may require access to certain information on your device:</p>
+                    <ul>
+                        <li>• <span class="highlight">Usage Statistics</span>: We track which applications are in the foreground to enforce your intentionality limits. This data is processed in real-time and remains strictly on your device.</li>
+                        <li>• <span class="highlight">Installed Packages</span>: We query installed applications to allow you to categorize them as "Distracting" or "Essential."</li>
+                        <li>• <span class="highlight">Notification Metadata</span>: To silence distracting alerts, we check the sender application name. We never read, store, or transmit the actual content of your notifications.</li>
+                        <li>• <span class="highlight">Location Data (Optional)</span>: Coarse location is used to fetch local weather. Your coordinates are sent to MET Norway to retrieve the forecast but are never stored or used for tracking.</li>
+                    </ul>
+                </section>
+
+                <section>
+                    <h2>2. Data Usage</h2>
+                    <p>
+                        All data processing regarding app usage and habits happens <span class="highlight">locally on your device</span>. We do not sell, rent, or trade your data.
+                    </p>
+                    <ul>
+                        <li>• To enforce focus sessions and provide real-time friction.</li>
+                        <li>• To display usage insights and "saved time" metrics.</li>
+                        <li>• To provide a simplified, distraction-free home environment.</li>
+                    </ul>
+                </section>
+
+                <section>
+                    <h2>3. Data Storage and Security</h2>
+                    <p>
+                        Usage history and notes are stored in a secure local database. We do not use cloud sync for user-generated content or history.
+                    </p>
+                </section>
+
+                <section>
+                    <h2>4. Important Permissions</h2>
+                    <p>To function as intended, Absent requires specific system roles:</p>
+                    <ul>
+                        <li>• <span class="highlight">Launcher Role</span>: To serve as your primary home screen.</li>
+                        <li>• <span class="highlight">Usage Access</span>: To detect when distracting apps are opened.</li>
+                        <li>• <span class="highlight">Overlay Permission</span>: To display the intentionality timer over other apps.</li>
+                        <li>• <span class="highlight">Notification Access</span>: To silence distracting alerts during focus sessions.</li>
+                    </ul>
+                </section>
+
+                <section>
+                    <h2>5. Your Control & Deletion</h2>
+                    <p>
+                        We respect your right to be forgotten. You have full control over your local history:
+                    </p>
+                    <ul>
+                        <li>• <span class="highlight">In-App Clear</span>: You can wipe all usage history and thoughts anytime in the Historical Data section of Settings.</li>
+                        <li>• <span class="highlight">Uninstallation</span>: Uninstalling the app permanently removes the local database and all associated records from your hardware.</li>
+                        <li>• <span class="highlight">Request Deletion</span>: You may request the deletion of your device-linked usage data by emailing us.</li>
+                    </ul>
+                </section>
+
+                <section>
+                    <h2>6. Contact Us</h2>
+                    <p>
+                        If you have questions about our local-first privacy architecture or wish to request data deletion, contact us at: <a href="mailto:absent@dattara.app">absent@dattara.app</a>
+                    </p>
+                </section>
+            </main>
+
+            <footer>
+                <div class="footer-copyright-line">
+                    <img src="../../svg/dattara-logo-small-black.svg" alt="Logo" class="footer-logo-small theme-light-only" loading="lazy" decoding="async">
+                    <img src="../../svg/dattara-logo-small.svg" alt="Logo" class="footer-logo-small theme-dark-only" loading="lazy" decoding="async">
+                    <span>&copy; 2026 DATTARA APPS. ALL RIGHTS RESERVED.</span>
+                </div>
+            </footer>
+        </div>
+    </div>
+
+    <script>
+        document.addEventListener('DOMContentLoaded', () => {
+            const themeToggle = document.getElementById('themeToggle');
+            if (!themeToggle) return;
+
+            themeToggle.addEventListener('click', () => {
+                try {
+                    const currentTheme = document.documentElement.getAttribute('data-theme');
+                    const newTheme = currentTheme === 'light' ? 'dark' : 'light';
+
+                    document.documentElement.setAttribute('data-theme', newTheme);
+                    localStorage.setItem('theme', newTheme);
+                } catch (e) {
+                    console.error('Failed to save theme preference:', e);
+                }
+            });
+        });
+    </script>
+</body>
+</html>
