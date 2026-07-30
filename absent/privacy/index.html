@@ -5,12 +5,17 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Dattara Apps | Absent Privacy Policy</title>
     <meta name="description" content="Privacy Policy for Absent by Dattara Apps. We value your focus and privacy.">
-    <link rel="icon" type="image/svg+xml" href="../../svg/dattara-logo-small.svg">
+    <link rel="icon" type="image/svg+xml" href="../../svg/absent.svg" id="favicon">
     <script>
         (function() {
             try {
                 const theme = localStorage.getItem('theme') || 'dark';
                 document.documentElement.setAttribute('data-theme', theme);
+                // Set initial favicon
+                const favicon = document.getElementById('favicon');
+                if (favicon) {
+                    favicon.href = theme === 'light' ? '../../svg/absent-black.svg' : '../../svg/absent-black.svg';
+                }
             } catch (e) {
                 document.documentElement.setAttribute('data-theme', 'dark');
             }
@@ -96,20 +101,6 @@
             gap: 15px;
         }
 
-        .brand-link {
-            display: flex;
-            align-items: center;
-            text-decoration: none;
-            color: inherit;
-            transition: opacity 0.2s;
-            flex: 1;
-            min-width: 0;
-        }
-
-        .brand-link:hover {
-            opacity: 0.8;
-        }
-
         .brand-line {
             display: flex;
             align-items: center;
@@ -125,6 +116,20 @@
             width: auto;
             display: block;
             flex-shrink: 0;
+        }
+
+        .brand-name {
+            display: flex;
+            align-items: center;
+            min-width: 0;
+            gap: 10px;
+            text-decoration: none;
+            color: inherit;
+        }
+
+        .brand-text {
+            font-weight: bold;
+            letter-spacing: 2px;
         }
 
         .brand-divider {
@@ -266,16 +271,15 @@
     <div class="app-container">
         <div class="scroll-content">
             <header>
-                <a href="../../index.html" class="brand-link">
-                    <div class="brand-line">
-                        <div class="brand-name">
-                            <img src="../../svg/dattara-full-black.svg" alt="DATTARA APPS" class="brand-logo theme-light-only" decoding="async">
-                            <img src="../../svg/dattara-full.svg" alt="DATTARA APPS" class="brand-logo theme-dark-only" decoding="async">
-                        </div>
-                        <span class="brand-divider">|</span>
-                        <span class="tagline">Engineering Intentionality.</span>
-                    </div>
-                </a>
+                <div class="brand-line">
+                    <a href="../index.html" class="brand-name">
+                        <img src="../../svg/absent-black.svg" alt="ABSENT" class="brand-logo theme-light-only" decoding="async">
+                        <img src="../../svg/absent.svg" alt="ABSENT" class="brand-logo theme-dark-only" decoding="async">
+                        <span class="brand-text">ABSENT</span>
+                    </a>
+                    <span class="brand-divider">|</span>
+                    <span class="tagline">Minimalist launcher.</span>
+                </div>
                 <button class="theme-toggle" id="themeToggle" title="Toggle Theme">
                     <span class="theme-light-only">●</span>
                     <span class="theme-dark-only">○</span>
@@ -284,7 +288,7 @@
 
             <main class="privacy-content">
                 <h1>ABSENT Privacy Policy</h1>
-                <p style="font-size: 0.75rem;">Effective Date: July 2, 2026</p>
+                <p style="font-size: 0.75rem;">Effective Date: July 31, 2026</p>
 
                 <section>
                     <p>
@@ -375,6 +379,12 @@
 
                     document.documentElement.setAttribute('data-theme', newTheme);
                     localStorage.setItem('theme', newTheme);
+
+                    // Update favicon
+                    const favicon = document.getElementById('favicon');
+                    if (favicon) {
+                        favicon.href = newTheme === 'light' ? '../../svg/absent-black.svg' : '../../svg/absent-black.svg';
+                    }
                 } catch (e) {
                     console.error('Failed to save theme preference:', e);
                 }
