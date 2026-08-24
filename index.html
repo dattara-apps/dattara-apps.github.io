@@ -158,6 +158,69 @@
             text-overflow: ellipsis;
         }
 
+        .app-banner-link {
+            width: 100%;
+            display: flex;
+            justify-content: center;
+            text-decoration: none;
+            margin-bottom: 20px;
+        }
+
+        .app-banner-link img {
+            width: 100%;
+            max-width: 800px;
+            height: auto;
+            border-radius: 12px;
+            transition: transform 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+            image-rendering: -webkit-optimize-contrast;
+            display: block;
+        }
+
+        .app-banner-link:hover img {
+            transform: scale(1.02);
+        }
+
+        .app-info-row {
+            display: flex;
+            justify-content: space-between;
+            align-items: flex-end;
+            width: 100%;
+            max-width: 800px;
+            margin: 10px auto 40px;
+            gap: 20px;
+            padding: 0 5px;
+        }
+
+        .app-info-link {
+            text-decoration: none;
+            color: inherit;
+            transition: opacity 0.2s;
+            flex: 1;
+        }
+
+        .app-info-link:hover {
+            opacity: 0.8;
+        }
+
+        .app-info-text {
+            text-align: right;
+        }
+
+        .app-info-text strong {
+            font-size: 1.5rem;
+            letter-spacing: 1px;
+            text-transform: uppercase;
+            display: block;
+            margin-bottom: 4px;
+        }
+
+        .app-info-text p {
+            margin: 0;
+            color: var(--secondary-text);
+            font-size: 0.7rem;
+            line-height: 1.4;
+        }
+
         /* --- Theme Toggle --- */
         .theme-toggle {
             background: transparent;
@@ -242,24 +305,19 @@
             transform: translateY(-2px);
         }
 
-        .btn-coming-soon {
-            background: transparent;
-            color: var(--text-color);
-            border: 1px solid var(--text-color);
-            padding: 12px 30px;
-            font-family: inherit;
-            letter-spacing: 2px;
-            text-transform: uppercase;
-            font-size: 0.9rem;
-            transition: all 0.3s;
-            cursor: pointer;
-            position: relative;
-            overflow: hidden;
+        .play-store-badge {
+            display: inline-block;
+            transition: transform 0.3s cubic-bezier(0.4, 0, 0.2, 1);
         }
 
-        .btn-coming-soon:hover {
-            background: var(--text-color);
-            color: var(--bg-color);
+        .play-store-badge:hover {
+            transform: scale(1.05);
+        }
+
+        .play-store-badge img {
+            height: 64px;
+            width: auto;
+            display: block;
         }
 
         footer {
@@ -313,16 +371,21 @@
             </header>
 
             <main>
-                <section class="app-intro">
-                    <span class="app-name">UNVEILING</span>
-                    <p class="app-summary">
-                        A minimalist Android launcher engineered to reclaim your time.
-                    </p>
-                </section>
+                <a href="absent/" class="app-banner-link">
+                    <img src="absent/mock/Absent%20Playstore-1-Banner-formatted.png" alt="Absent Launcher">
+                </a>
 
-                <section class="cta-section">
-                    <button class="btn-coming-soon">Coming Soon</button>
-                </section>
+                <div class="app-info-row">
+                    <a href="https://play.google.com/store/apps/details?id=app.dattara.absent.launcher" target="_blank" class="play-store-badge">
+                        <img src="absent/mock/getitonplay.png" alt="Get it on Google Play">
+                    </a>
+                    <a href="absent/" class="app-info-link">
+                        <div class="app-info-text">
+                            <strong>Absent Launcher &rarr;</strong>
+                            <p>A minimalist Android launcher engineered to reclaim your time.</p>
+                        </div>
+                    </a>
+                </div>
             </main>
 
             <footer>
@@ -336,7 +399,7 @@
                         <svg class="social-icon" viewBox="0 0 24 24"><path d="M12 2.163c3.204 0 3.584.012 4.85.07 3.252.148 4.771 1.691 4.919 4.919.058 1.265.069 1.645.069 4.849 0 3.205-.012 3.584-.069 4.849-.149 3.225-1.664 4.771-4.919 4.919-1.266.058-1.644.07-4.85.07-3.204 0-3.584-.012-4.849-.07-3.26-.149-4.771-1.699-4.919-4.92-.058-1.265-.07-1.644-.07-4.849 0-3.204.013-3.583.07-4.849.149-3.227 1.664-4.771 4.919-4.919 1.266-.057 1.645-.069 4.849-.069zm0-2.163c-3.259 0-3.667.014-4.947.072-4.358.2-6.78 2.618-6.98 6.98-.059 1.281-.073 1.689-.073 4.948 0 3.259.014 3.668.072 4.947.2 4.358 2.618 6.78 6.98 6.98 1.281.058 1.689.072 4.948.072 3.259 0 3.668-.014 4.948-.072 4.354-.2 6.782-2.618 6.979-6.98.059-1.28.073-1.689.073-4.948 0-3.259-.014-3.667-.072-4.947-.196-4.354-2.617-6.78-6.979-6.98-1.281-.059-1.69-.073-4.949-.073zm0 5.838c-3.403 0-6.162 2.759-6.162 6.162s2.759 6.163 6.162 6.163 6.162-2.759 6.162-6.163-2.759-6.162-6.162-6.162zm0 10.162c-2.209 0-4-1.79-4-4 0-2.209 1.791-4 4-4s4 1.791 4 4c0 2.21-1.791 4-4 4zm6.406-11.845c-.796 0-1.441.645-1.441 1.44s.645 1.44 1.441 1.44c.795 0 1.439-.645 1.439-1.44s-.644-1.44-1.439-1.44z"/></svg>
                     </a>
                     <!-- YouTube -->
-                    <a href="#" aria-label="YouTube" target="_blank">
+                    <a href="https://www.youtube.com/@DattaraApps" aria-label="YouTube" target="_blank">
                         <svg class="social-icon" viewBox="0 0 24 24"><path d="M23.498 6.186a3.016 3.016 0 0 0-2.122-2.136C19.505 3.545 12 3.545 12 3.545s-7.505 0-9.377.505A3.017 3.017 0 0 0 .502 6.186C0 8.07 0 12 0 12s0 3.93.502 5.814a3.016 3.016 0 0 0 2.122 2.136c1.871.505 9.376.505 9.376.505s7.505 0 9.377-.505a3.015 3.015 0 0 0 2.122-2.136C24 15.93 24 12 24 12s0-3.93-.502-5.814zM9.545 15.568V8.432L15.818 12l-6.273 3.568z"/></svg>
                     </a>
                     <!-- GitHub -->
@@ -366,19 +429,18 @@
     <script>
         document.addEventListener('DOMContentLoaded', () => {
             const themeToggle = document.getElementById('themeToggle');
-            if (!themeToggle) return;
-
-            themeToggle.addEventListener('click', () => {
-                try {
-                    const currentTheme = document.documentElement.getAttribute('data-theme');
-                    const newTheme = currentTheme === 'light' ? 'dark' : 'light';
-
-                    document.documentElement.setAttribute('data-theme', newTheme);
-                    localStorage.setItem('theme', newTheme);
-                } catch (e) {
-                    console.error('Failed to save theme preference:', e);
-                }
-            });
+            if (themeToggle) {
+                themeToggle.addEventListener('click', () => {
+                    try {
+                        const currentTheme = document.documentElement.getAttribute('data-theme');
+                        const newTheme = currentTheme === 'light' ? 'dark' : 'light';
+                        document.documentElement.setAttribute('data-theme', newTheme);
+                        localStorage.setItem('theme', newTheme);
+                    } catch (e) {
+                        console.error('Failed to save theme preference:', e);
+                    }
+                });
+            }
         });
     </script>
 </body>

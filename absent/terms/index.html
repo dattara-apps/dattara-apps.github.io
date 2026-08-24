@@ -14,7 +14,7 @@
                 // Set initial favicon
                 const favicon = document.getElementById('favicon');
                 if (favicon) {
-                    favicon.href = theme === 'light' ? '../../svg/absent-black.svg' : '../../svg/absent-black.svg';
+                    favicon.href = theme === 'light' ? '../../svg/absent-black.svg' : '../../svg/absent.svg';
                 }
             } catch (e) {
                 document.documentElement.setAttribute('data-theme', 'dark');
@@ -380,7 +380,7 @@
                     // Update favicon
                     const favicon = document.getElementById('favicon');
                     if (favicon) {
-                        favicon.href = newTheme === 'light' ? '../../svg/absent-black.svg' : '../../svg/absent-black.svg';
+                        favicon.href = newTheme === 'light' ? '../../svg/absent-black.svg' : '../../svg/absent.svg';
                     }
                 } catch (e) {
                     console.error('Failed to save theme preference:', e);
