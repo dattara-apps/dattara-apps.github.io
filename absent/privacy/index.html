@@ -3,24 +3,19 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Dattara Apps | Absent Privacy Policy</title>
+    <title>Absent | Privacy Policy</title>
     <meta name="description" content="Privacy Policy for Absent by Dattara Apps. We value your focus and privacy.">
-    <link rel="icon" type="image/svg+xml" href="../../svg/absent.svg" id="favicon">
     <script>
         (function() {
             try {
                 const theme = localStorage.getItem('theme') || 'dark';
                 document.documentElement.setAttribute('data-theme', theme);
-                // Set initial favicon
-                const favicon = document.getElementById('favicon');
-                if (favicon) {
-                    favicon.href = theme === 'light' ? '../../svg/absent-black.svg' : '../../svg/absent.svg';
-                }
             } catch (e) {
                 document.documentElement.setAttribute('data-theme', 'dark');
             }
         })();
     </script>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700&display=swap" rel="stylesheet">
     <style>
         :root {
             --bg-color: #fff;
@@ -30,6 +25,8 @@
             --border-color: #ddd;
             --dot-active: #000;
             --dot-inactive: #ddd;
+            --primary: #C62828;
+            --secondary: #FB8C00;
         }
 
         [data-theme="dark"] {
@@ -91,72 +88,74 @@
 
         .scroll-content::-webkit-scrollbar { display: none; }
 
+        /* --- CORPORATE HEADER CONCEPT --- */
         header {
-            width: 100%;
-            padding: 20px 0;
-            margin-bottom: 20px;
             display: flex;
             justify-content: space-between;
             align-items: center;
-            gap: 15px;
+            padding: 20px 40px;
+            width: 100%;
+            position: sticky;
+            top: 0;
+            background: var(--bg-color);
+            z-index: 1005;
+            border-bottom: 1px solid var(--border-color);
+            font-family: 'Inter', sans-serif;
+            margin-bottom: 20px;
         }
 
-        .brand-line {
+        .logo-container {
             display: flex;
             align-items: center;
-            justify-content: flex-start;
-            white-space: nowrap;
-            font-size: clamp(10px, 3.5vw, 22px);
-            flex: 1;
-            min-width: 0;
-        }
-
-        .brand-logo {
-            height: 2.2em;
-            width: auto;
-            display: block;
-            flex-shrink: 0;
-        }
-
-        .brand-name {
-            display: flex;
-            align-items: center;
-            min-width: 0;
-            gap: 10px;
+            gap: 12px;
             text-decoration: none;
             color: inherit;
         }
 
-        .brand-text {
-            font-weight: bold;
-            letter-spacing: 2px;
+        .logo-img {
+            height: 32px;
+            width: auto;
         }
 
-        .brand-divider {
-            margin: 0 10px;
+        .brand-name-text {
+            font-weight: 700;
+            font-size: 20px;
+            letter-spacing: -0.5px;
+        }
+
+        nav {
+            display: flex;
+            gap: 24px;
+            align-items: center;
+        }
+
+        nav a {
+            text-decoration: none;
             color: var(--text-color);
-            font-weight: bold;
-            display: inline-block;
-            transform: scaleY(1.4);
-            opacity: 0.9;
-            flex-shrink: 0;
+            font-size: 10px;
+            font-weight: 600;
+            letter-spacing: 1px;
+            transition: color 0.2s;
+            display: block;
+            line-height: 1;
         }
 
-        .tagline {
-            color: var(--secondary-text);
-            font-weight: normal;
-            letter-spacing: 1px;
-            font-size: 0.85em;
-            overflow: hidden;
-            text-overflow: ellipsis;
+        nav a:hover {
+            color: var(--primary);
+        }
+
+        .header-right {
+            display: flex;
+            align-items: center;
+            gap: 20px;
         }
 
         .theme-toggle {
             background: transparent;
-            border: 1px solid var(--border-color);
+            border: none;
             color: var(--text-color);
-            width: 44px;
-            height: 44px;
+            width: auto;
+            height: auto;
             display: flex;
             align-items: center;
             justify-content: center;
@@ -165,12 +164,87 @@
             font-size: 1.2rem;
             transition: all 0.2s;
             flex-shrink: 0;
+            padding: 0;
+            margin-left: 5px;
         }
 
         .theme-toggle:active {
             transform: scale(0.95);
-            background: var(--accent-color);
         }
+
+        .btn-get-started {
+            background: linear-gradient(90deg, var(--primary), var(--secondary));
+            color: white;
+            border: none;
+            padding: 8px 18px;
+            border-radius: 20px;
+            font-weight: 700;
+            font-size: 10px;
+            cursor: pointer;
+            transition: opacity 0.2s;
+            text-transform: uppercase;
+            line-height: 1.2;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+
+        @media (max-width: 1024px) {
+            nav { display: none; }
+            .menu-toggle { display: flex !important; }
+            .btn-get-started { display: none; }
+        }
+
+        /* Mobile Menu Styles */
+        .menu-toggle {
+            display: none;
+            flex-direction: column;
+            gap: 4px;
+            cursor: pointer;
+            padding: 5px;
+            z-index: 1002;
+        }
+
+        .menu-toggle span {
+            width: 20px;
+            height: 2px;
+            background-color: var(--text-color);
+            transition: all 0.3s;
+        }
+
+        .mobile-nav {
+            position: fixed;
+            top: 0;
+            right: -100%;
+            width: 100%;
+            height: 100vh;
+            background-color: var(--bg-color);
+            z-index: 1004;
+            display: flex;
+            flex-direction: column;
+            padding: 120px 40px 40px;
+            gap: 30px;
+            transition: right 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+            font-family: 'Inter', sans-serif;
+            overflow-y: auto;
+        }
+
+        .mobile-nav.active {
+            right: 0;
+        }
+
+        .mobile-nav a {
+            text-decoration: none;
+            color: var(--text-color);
+            font-size: 24px;
+            font-weight: 700;
+            text-transform: uppercase;
+        }
+
+        /* Hamburger Animation */
+        .menu-toggle.active span:nth-child(1) { transform: translateY(6px) rotate(45deg); background-color: var(--primary); }
+        .menu-toggle.active span:nth-child(2) { opacity: 0; }
+        .menu-toggle.active span:nth-child(3) { transform: translateY(-6px) rotate(-45deg); background-color: var(--primary); }
 
         .privacy-content {
             max-width: 800px;
@@ -252,14 +326,8 @@
         }
 
         @media (max-width: 480px) {
-            .brand-divider, .tagline {
-                display: none;
-            }
-            .brand-line {
-                font-size: 18px;
-            }
             header {
-                padding: 15px 0;
+                padding: 15px 10px;
             }
         }
 
@@ -271,20 +339,38 @@
     <div class="app-container">
         <div class="scroll-content">
             <header>
-                <div class="brand-line">
-                    <a href="../index.html" class="brand-name">
-                        <img src="../../svg/absent-black.svg" alt="ABSENT" class="brand-logo theme-light-only" decoding="async">
-                        <img src="../../svg/absent.svg" alt="ABSENT" class="brand-logo theme-dark-only" decoding="async">
-                        <span class="brand-text">ABSENT</span>
-                    </a>
-                    <span class="brand-divider">|</span>
-                    <span class="tagline">Minimalist launcher.</span>
+                <a href="../index.html" class="logo-container">
+                    <img src="../../svg/absent-black.svg" alt="ABSENT" class="logo-img theme-light-only">
+                    <img src="../../svg/absent.svg" alt="ABSENT" class="logo-img theme-dark-only">
+                    <span class="brand-name-text">ABSENT</span>
+                </a>
+
+                <div class="header-right">
+                    <nav>
+                        <a href="../index.html">HOME</a>
+                        <a href="../privacy/">PRIVACY</a>
+                        <a href="../terms/">TERMS</a>
+                    </nav>
+                    <button class="btn-get-started" onclick="window.location.href='mailto:absent@dattara.app'">CONTACT</button>
+                    <button class="theme-toggle" id="themeToggle" title="Toggle Theme">
+                        <span class="theme-light-only">●</span>
+                        <span class="theme-dark-only">○</span>
+                    </button>
+                    <div class="menu-toggle" id="menuToggle">
+                        <span></span>
+                        <span></span>
+                        <span></span>
+                    </div>
                 </div>
-                <button class="theme-toggle" id="themeToggle" title="Toggle Theme">
-                    <span class="theme-light-only">●</span>
-                    <span class="theme-dark-only">○</span>
-                </button>
             </header>
+
+            <!-- Mobile Navigation -->
+            <div class="mobile-nav" id="mobileNav">
+                <a href="../index.html">Home</a>
+                <a href="../privacy/">Privacy</a>
+                <a href="../terms/">Terms</a>
+                <a href="mailto:absent@dattara.app" style="color: #3b82f6;">Contact</a>
+            </div>
 
             <main class="privacy-content">
                 <h1>ABSENT Privacy Policy</h1>
@@ -352,14 +438,14 @@
                 <section>
                     <h2>6. Contact Us</h2>
                     <p>
-                        If you have questions about our local-first privacy architecture or wish to request data deletion, contact us at: <a href="mailto:absent@dattara.app">absent@dattara.app</a>
+                        If you have questions about our local-first privacy architecture or wish to request data deletion, contact us at: <a href="mailto:absent@dattara.app" style="color: #3b82f6; text-decoration: underline;">absent@dattara.app</a>
                     </p>
                 </section>
             </main>
 
             <footer>
                 <div class="footer-copyright-line">
-                    <img src="../../svg/dattara-logo-small-black.svg" alt="Logo" class="footer-logo-small theme-light-only" loading="lazy" decoding="async">
+                    <img src="../../svg/dattara-logo-small.svg" alt="Logo" class="footer-logo-small theme-light-only" loading="lazy" decoding="async">
                     <img src="../../svg/dattara-logo-small.svg" alt="Logo" class="footer-logo-small theme-dark-only" loading="lazy" decoding="async">
                     <span>&copy; 2026 DATTARA APPS. ALL RIGHTS RESERVED.</span>
                 </div>
@@ -370,25 +456,47 @@
     <script>
         document.addEventListener('DOMContentLoaded', () => {
             const themeToggle = document.getElementById('themeToggle');
-            if (!themeToggle) return;
+            if (themeToggle) {
+                themeToggle.addEventListener('click', () => {
+                    try {
+                        const currentTheme = document.documentElement.getAttribute('data-theme');
+                        const newTheme = currentTheme === 'light' ? 'dark' : 'light';
 
-            themeToggle.addEventListener('click', () => {
-                try {
-                    const currentTheme = document.documentElement.getAttribute('data-theme');
-                    const newTheme = currentTheme === 'light' ? 'dark' : 'light';
+                        document.documentElement.setAttribute('data-theme', newTheme);
+                        localStorage.setItem('theme', newTheme);
 
-                    document.documentElement.setAttribute('data-theme', newTheme);
-                    localStorage.setItem('theme', newTheme);
-
-                    // Update favicon
-                    const favicon = document.getElementById('favicon');
-                    if (favicon) {
-                        favicon.href = newTheme === 'light' ? '../../svg/absent-black.svg' : '../../svg/absent.svg';
+                        // Update favicon
+                        const favicon = document.getElementById('favicon');
+                        if (favicon) {
+                            favicon.href = newTheme === 'light' ? '../../svg/absent-black.svg' : '../../svg/absent-black.svg';
+                        }
+                    } catch (e) {
+                        console.error('Failed to save theme preference:', e);
                     }
-                } catch (e) {
-                    console.error('Failed to save theme preference:', e);
-                }
-            });
+                });
+            }
+
+            // Mobile Menu Toggle
+            const menuToggle = document.getElementById('menuToggle');
+            const mobileNav = document.getElementById('mobileNav');
+
+            if (menuToggle && mobileNav) {
+                menuToggle.addEventListener('click', () => {
+                    menuToggle.classList.toggle('active');
+                    mobileNav.classList.toggle('active');
+                    document.body.style.overflow = mobileNav.classList.contains('active') ? 'hidden' : '';
+                });
+
+                // Close menu when clicking links
+                const mobileLinks = mobileNav.querySelectorAll('a');
+                mobileLinks.forEach(link => {
+                    link.addEventListener('click', () => {
+                        menuToggle.classList.remove('active');
+                        mobileNav.classList.remove('active');
+                        document.body.style.overflow = '';
+                    });
+                });
+            }
         });
     </script>
 </body>

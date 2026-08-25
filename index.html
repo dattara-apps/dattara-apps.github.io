@@ -20,7 +20,7 @@
     <meta property="twitter:description" content="A minimalist Android launcher engineered to reclaim your time.">
     <meta property="twitter:image" content="https://dattara.app/svg/dattara-logo-big.svg">
 
-    <link rel="icon" type="image/svg+xml" href="svg/dattara-logo-big.svg">
+    <link rel="icon" type="image/svg+xml" href="svg/dattara-logo-new.svg">
     <script>
         // Theme initialization - robust and crash-free
         (function() {
@@ -33,6 +33,7 @@
             }
         })();
     </script>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700&display=swap" rel="stylesheet">
     <style>
         :root {
             --bg-color: #fff;
@@ -42,6 +43,8 @@
             --border-color: #ddd;
             --dot-active: #000;
             --dot-inactive: #ddd;
+            --primary: #C62828;
+            --secondary: #FB8C00;
         }
 
         [data-theme="dark"] {
@@ -105,58 +108,224 @@
 
         .scroll-content::-webkit-scrollbar { display: none; }
 
-        /* --- SINGLE LINE HEADER --- */
+        /* --- CORPORATE HEADER --- */
         header {
-            width: 100%;
-            padding: 20px 0;
-            margin-bottom: 20px;
             display: flex;
             justify-content: space-between;
             align-items: center;
-            gap: 15px;
+            padding: 20px 40px;
+            width: 100%;
+            position: sticky;
+            top: 0;
+            background: var(--bg-color);
+            z-index: 1005; /* Increased to stay above mobile nav */
+            border-bottom: 1px solid var(--border-color);
+            font-family: 'Inter', sans-serif;
+            margin-bottom: 20px;
         }
 
-        .brand-line {
+        .logo-container {
             display: flex;
             align-items: center;
-            justify-content: flex-start;
-            white-space: nowrap;
-            font-size: clamp(10px, 3.5vw, 22px);
-            flex: 1;
-            min-width: 0;
+            gap: 12px;
+            text-decoration: none;
+            color: inherit;
         }
 
-        .brand-logo {
-            height: 2.2em;
+        .logo-img {
+            height: 32px;
             width: auto;
-            display: block;
-            flex-shrink: 0;
         }
 
-        .brand-name {
+        .brand-name-text {
+            font-weight: 700;
+            font-size: 20px;
+            letter-spacing: -0.5px;
+        }
+
+        nav {
+            display: flex;
+            gap: 24px;
+            align-items: center;
+        }
+
+        nav a {
+            text-decoration: none;
+            color: var(--text-color);
+            font-size: 11px;
+            font-weight: 600;
+            letter-spacing: 0.5px;
+            transition: color 0.2s;
+            display: block;
+            line-height: 1;
+        }
+
+        nav a:hover {
+            color: var(--primary);
+        }
+
+        /* Dropdown Styles */
+        .dropdown {
+            position: relative;
+            display: inline-block;
+        }
+
+        .dropdown-content {
+            opacity: 0;
+            visibility: hidden;
+            transform: translateY(10px);
+            position: absolute;
+            top: 100%;
+            left: 0;
+            background-color: var(--bg-color);
+            min-width: 180px;
+            box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.1);
+            z-index: 1001;
+            border: 1px solid var(--border-color);
+            border-radius: 8px;
+            padding: 10px 0;
+            margin-top: 10px;
+            transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+        }
+
+        .dropdown:hover .dropdown-content {
+            opacity: 1;
+            visibility: visible;
+            transform: translateY(0);
+        }
+
+        .dropdown-item {
             display: flex;
             align-items: center;
-            min-width: 0;
-        }
-
-        .brand-divider {
-            margin: 0 10px;
+            gap: 12px;
+            padding: 10px 15px;
+            text-decoration: none;
             color: var(--text-color);
-            font-weight: bold;
-            display: inline-block;
-            transform: scaleY(1.4);
-            opacity: 0.9;
-            flex-shrink: 0;
+            font-size: 12px;
+            font-weight: 600;
+            transition: background 0.2s;
         }
 
-        .tagline {
-            color: var(--secondary-text);
-            font-weight: normal;
-            letter-spacing: 1px;
-            font-size: 0.85em;
-            overflow: hidden;
-            text-overflow: ellipsis;
+        .dropdown-item:hover {
+            background: var(--accent-color);
         }
+
+        .dropdown-item img {
+            width: 20px;
+            height: 20px;
+        }
+
+        .header-right {
+            display: flex;
+            align-items: center;
+            gap: 30px;
+        }
+
+        .btn-get-started {
+            background: linear-gradient(90deg, var(--primary), var(--secondary));
+            color: white;
+            border: none;
+            padding: 8px 18px;
+            border-radius: 20px;
+            font-weight: 700;
+            font-size: 10px;
+            cursor: pointer;
+            transition: opacity 0.2s;
+            text-transform: uppercase;
+            line-height: 1.2;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+
+        .header-icon {
+            width: 18px;
+            height: 18px;
+            cursor: pointer;
+            opacity: 0.8;
+            stroke: var(--text-color);
+        }
+
+        @media (max-width: 1024px) {
+            header { padding: 15px 20px; }
+            nav { display: none; }
+            .menu-toggle { display: flex !important; }
+            .btn-get-started { display: none; } /* Hide duplicate contact button on mobile */
+        }
+
+        /* Mobile Menu Styles */
+        .menu-toggle {
+            display: none;
+            flex-direction: column;
+            gap: 4px;
+            cursor: pointer;
+            padding: 5px;
+            z-index: 1002;
+        }
+
+        .menu-toggle span {
+            width: 20px;
+            height: 2px;
+            background-color: var(--text-color);
+            transition: all 0.3s;
+        }
+
+        .mobile-nav {
+            position: fixed;
+            top: 0;
+            right: -100%;
+            width: 100%;
+            height: 100vh;
+            background-color: var(--bg-color);
+            z-index: 1004; /* Below the header so X stays visible */
+            display: flex;
+            flex-direction: column;
+            padding: 120px 40px 40px; /* More padding top for header clearance */
+            gap: 30px;
+            transition: right 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+            font-family: 'Inter', sans-serif;
+            overflow-y: auto;
+        }
+
+        .mobile-nav.active {
+            right: 0;
+        }
+
+        .mobile-nav a {
+            text-decoration: none;
+            color: var(--text-color);
+            font-size: 24px;
+            font-weight: 700;
+            text-transform: uppercase;
+        }
+
+        .mobile-nav .mobile-dropdown-title {
+            font-size: 24px;
+            font-weight: 700;
+            text-transform: uppercase;
+            color: var(--text-color);
+            margin-bottom: 10px;
+            display: block;
+        }
+
+        .mobile-nav .mobile-dropdown-items {
+            display: flex;
+            flex-direction: column;
+            gap: 15px;
+            padding-left: 20px;
+            margin-bottom: 10px;
+        }
+
+        .mobile-nav .mobile-dropdown-items a {
+            font-size: 16px;
+            font-weight: 600;
+            color: var(--secondary-text);
+        }
+
+        /* Hamburger Animation */
+        .menu-toggle.active span:nth-child(1) { transform: translateY(6px) rotate(45deg); background-color: var(--primary); }
+        .menu-toggle.active span:nth-child(2) { opacity: 0; }
+        .menu-toggle.active span:nth-child(3) { transform: translateY(-6px) rotate(-45deg); background-color: var(--primary); }
 
         .app-banner-link {
             width: 100%;
@@ -224,10 +393,10 @@
         /* --- Theme Toggle --- */
         .theme-toggle {
             background: transparent;
-            border: 1px solid var(--border-color);
+            border: none;
             color: var(--text-color);
-            width: 44px;
-            height: 44px;
+            width: auto;
+            height: auto;
             display: flex;
             align-items: center;
             justify-content: center;
@@ -236,11 +405,12 @@
             font-size: 1.2rem;
             transition: all 0.2s;
             flex-shrink: 0;
+            padding: 0;
+            margin-left: 5px;
         }
 
         .theme-toggle:active {
             transform: scale(0.95);
-            background: var(--accent-color);
         }
 
         @media (max-width: 480px) {
@@ -371,19 +541,71 @@
     <div class="app-container">
         <div class="scroll-content">
             <header>
-                <div class="brand-line">
-                    <div class="brand-name">
-                        <img src="svg/dattara-full-black.svg" alt="DATTARA APPS" class="brand-logo theme-light-only" decoding="async">
-                        <img src="svg/dattara-full.svg" alt="DATTARA APPS" class="brand-logo theme-dark-only" decoding="async" fetchpriority="high">
+                <a href="/" class="logo-container">
+                    <img src="svg/dattara-logo-new.svg" alt="Dattara" class="logo-img">
+                    <span class="brand-name-text">DATTARA APPS</span>
+                </a>
+
+                <div class="header-right">
+                    <nav>
+                        <div class="dropdown">
+                            <a href="absent/">PRODUCTS</a>
+                            <div class="dropdown-content">
+                                <a href="absent/" class="dropdown-item">
+                                    <img src="svg/absent-black.svg" alt="Absent" class="theme-light-only">
+                                    <img src="svg/absent.svg" alt="Absent" class="theme-dark-only">
+                                    <span>ABSENT</span>
+                                </a>
+                            </div>
+                        </div>
+                        <div class="dropdown">
+                            <a href="services/">SERVICES</a>
+                            <div class="dropdown-content" style="min-width: 220px;">
+                                <a href="services/#mobile-web" class="dropdown-item">
+                                    <span>Mobile & Web Apps</span>
+                                </a>
+                                <a href="services/#backend-cloud" class="dropdown-item">
+                                    <span>Backend & Cloud</span>
+                                </a>
+                                <a href="services/#maintenance" class="dropdown-item">
+                                    <span>Maintenance & Optimization</span>
+                                </a>
+                            </div>
+                        </div>
+                        <a href="about/">ABOUT US</a>
+                    </nav>
+                    <button class="btn-get-started" onclick="window.location.href='mailto:contact@dattara.app'">CONTACT</button>
+                    <button class="theme-toggle" id="themeToggle" title="Toggle Theme">
+                        <span class="theme-light-only">●</span>
+                        <span class="theme-dark-only">○</span>
+                    </button>
+                    <div class="menu-toggle" id="menuToggle">
+                        <span></span>
+                        <span></span>
+                        <span></span>
                     </div>
-                    <span class="brand-divider">|</span>
-                    <span class="tagline">Intentionality over noise.</span>
                 </div>
-                <button class="theme-toggle" id="themeToggle" title="Toggle Theme">
-                    <span class="theme-light-only">●</span>
-                    <span class="theme-dark-only">○</span>
-                </button>
             </header>
+
+            <!-- Mobile Navigation -->
+            <div class="mobile-nav" id="mobileNav">
+                <div>
+                    <span class="mobile-dropdown-title">Products</span>
+                    <div class="mobile-dropdown-items">
+                        <a href="absent/">Absent Launcher</a>
+                    </div>
+                </div>
+                <div>
+                    <span class="mobile-dropdown-title">Services</span>
+                    <div class="mobile-dropdown-items">
+                        <a href="services/#mobile-web">Mobile & Web Apps</a>
+                        <a href="services/#backend-cloud">Backend & Cloud</a>
+                        <a href="services/#maintenance">Maintenance & Optimization</a>
+                    </div>
+                </div>
+                <a href="about/">About Us</a>
+                <a href="mailto:contact@dattara.app" style="color: #3b82f6;">Contact</a>
+            </div>
 
             <main>
                 <a href="absent/" class="app-banner-link">
@@ -427,15 +649,16 @@
                     </a>
                 </div>
                 <div class="footer-copyright-line">
-                    <img src="svg/dattara-logo-small-black.svg" alt="Logo" class="footer-logo-small theme-light-only" loading="lazy" decoding="async">
+                    <img src="svg/dattara-logo-small.svg" alt="Logo" class="footer-logo-small theme-light-only" loading="lazy" decoding="async">
                     <img src="svg/dattara-logo-small.svg" alt="Logo" class="footer-logo-small theme-dark-only" loading="lazy" decoding="async">
                     <span>&copy; 2026 DATTARA APPS. ALL RIGHTS RESERVED.</span>
                 </div>
                 <div style="margin-top: 10px;">
-                    <a href="mailto:contact@dattara.app" style="color: inherit; text-decoration: none; border-bottom: 1px solid #444;">contact@dattara.app</a>
+                    <a href="mailto:contact@dattara.app" style="color: #3b82f6; text-decoration: underline;">contact@dattara.app</a>
                 </div>
                 <div style="margin-top: 10px; display: flex; gap: 20px; justify-content: center;">
-                    <a href="privacy.html" style="color: #666; text-decoration: none; font-size: 0.6rem; letter-spacing: 1px;">DATTARA PRIVACY</a>
+                    <a href="privacy/" style="color: #3b82f6; text-decoration: underline; font-size: 0.6rem; letter-spacing: 1px;">PRIVACY POLICY</a>
+                    <a href="terms/" style="color: #3b82f6; text-decoration: underline; font-size: 0.6rem; letter-spacing: 1px;">TERMS OF SERVICE</a>
                 </div>
             </footer>
         </div>
@@ -454,6 +677,28 @@
                     } catch (e) {
                         console.error('Failed to save theme preference:', e);
                     }
+                });
+            }
+
+            // Mobile Menu Toggle
+            const menuToggle = document.getElementById('menuToggle');
+            const mobileNav = document.getElementById('mobileNav');
+
+            if (menuToggle && mobileNav) {
+                menuToggle.addEventListener('click', () => {
+                    menuToggle.classList.toggle('active');
+                    mobileNav.classList.toggle('active');
+                    document.body.style.overflow = mobileNav.classList.contains('active') ? 'hidden' : '';
+                });
+
+                // Close menu when clicking links
+                const mobileLinks = mobileNav.querySelectorAll('a');
+                mobileLinks.forEach(link => {
+                    link.addEventListener('click', () => {
+                        menuToggle.classList.remove('active');
+                        mobileNav.classList.remove('active');
+                        document.body.style.overflow = '';
+                    });
                 });
             }
         });

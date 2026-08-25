@@ -4,7 +4,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>404 | Dattara Apps</title>
-    <link rel="icon" type="image/svg+xml" href="svg/dattara-logo-small.svg">
+    <link rel="icon" type="image/svg+xml" href="svg/dattara-logo-new.svg">
     <script>
         (function() {
             try {
@@ -61,15 +61,14 @@
         }
 
         @keyframes float {
-            0% { transform: translateY(0px); }
-            50% { transform: translateY(-20px); }
-            100% { transform: translateY(0px); }
+            0% { transform: translateY(0px); filter: drop-shadow(0 5px 15px rgba(0,0,0,0.1)); }
+            50% { transform: translateY(-20px); filter: drop-shadow(0 25px 25px rgba(0,0,0,0.2)); }
+            100% { transform: translateY(0px); filter: drop-shadow(0 5px 15px rgba(0,0,0,0.1)); }
         }
 
         .big-logo {
             width: clamp(180px, 40vw, 300px);
             height: auto;
-            opacity: 0.9;
         }
 
         .error-content {
@@ -81,6 +80,12 @@
             font-size: 1.5rem;
             margin: 10px 0 20px;
             font-weight: normal;
+            animation: text-flash 4s infinite ease-in-out;
+        }
+
+        @keyframes text-flash {
+            0%, 100% { opacity: 1; }
+            50% { opacity: 0.6; }
         }
 
         .error-msg {
@@ -123,6 +128,12 @@
             pointer-events: none;
             z-index: 0;
             color: var(--text-color);
+            animation: bg-flash 8s infinite ease-in-out;
+        }
+
+        @keyframes bg-flash {
+            0%, 100% { opacity: 0.02; transform: scale(1); }
+            50% { opacity: 0.05; transform: scale(1.05); }
         }
 
         /* Hide logos that don't match theme */
@@ -135,8 +146,7 @@
 
     <div class="container">
         <div class="logo-container">
-            <img src="svg/dattara-logo-big.svg" alt="Dattara" class="big-logo theme-dark-only">
-            <img src="svg/dattara-logo-big.svg" alt="Dattara" class="big-logo theme-light-only" style="filter: invert(1);">
+            <img src="svg/dattara-logo-new.svg" alt="Dattara" class="big-logo">
         </div>
 
         <div class="error-content">
@@ -147,8 +157,7 @@
             </p>
 
             <div class="nav-links">
-                <a href="index.html" class="btn">Back Home</a>
-                <a href="privacy.html" class="btn">Privacy</a>
+                <a href="index.html" class="btn">Home</a>
             </div>
         </div>
     </div>
