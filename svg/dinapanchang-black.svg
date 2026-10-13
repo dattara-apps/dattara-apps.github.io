@@ -1,0 +1,143 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="512" height="512" viewBox="0 0 108 108">
+
+    <!-- Background -->
+    <rect width="108" height="108" fill="#000000" />
+
+    <!-- 1. Astrological Geometry -->
+
+    <!-- Orbital Path (Oval) -->
+    <g transform="translate(5, 5) translate(32, 32) rotate(-50) scale(1.5, 1.1) translate(-32, -32)">
+        <path
+            stroke="#D7CCC8"
+            stroke-width="0.3"
+            d="M 54, 26 A 42, 28 0 1 1 54, 82 A 42, 28 0 1 1 54, 26"
+            opacity="0.3"
+            fill="none" />
+    </g>
+
+    <!-- Inner Decorative Ring -->
+    <g transform="translate(-12, 36) translate(32, 32) rotate(0) scale(0.8, 0.2) translate(-32, -32)">
+        <path
+            stroke="#CBD5E1"
+            stroke-width="0.2"
+            d="M 54, 40 A 24, 14 0 1 1 54, 68 A 24, 14 0 1 1 54, 40"
+            opacity="0.3"
+            fill="none" />
+    </g>
+
+    <!-- 2. Sun (Center - Heliocentric focus) -->
+    <g transform="translate(35, 10) translate(32, 32) scale(0.6, 0.6) translate(-32, -32)">
+        <path
+            fill="#000000"
+            fill-opacity="0.1"
+            stroke="#FBBF24"
+            stroke-width="3"
+            stroke-linecap="round"
+            d="M 32 4 L 32 10" />
+        <path
+            fill="#000000"
+            fill-opacity="0.1"
+            stroke="#FBBF24"
+            stroke-width="3"
+            stroke-linecap="round"
+            d="M 32 54 L 32 60" />
+        <path
+            fill="#000000"
+            fill-opacity="0.1"
+            stroke="#FBBF24"
+            stroke-width="3"
+            stroke-linecap="round"
+            d="M 4 32 L 10 32" />
+        <path
+            fill="#000000"
+            fill-opacity="0.1"
+            stroke="#FBBF24"
+            stroke-width="3"
+            stroke-linecap="round"
+            d="M 54 32 L 60 32" />
+        <path
+            fill="#000000"
+            fill-opacity="0.1"
+            stroke="#FBBF24"
+            stroke-width="3"
+            stroke-linecap="round"
+            d="M 12.2 12.2 L 16.5 16.5" />
+        <path
+            fill="#000000"
+            fill-opacity="0.1"
+            stroke="#FBBF24"
+            stroke-width="3"
+            stroke-linecap="round"
+            d="M 47.5 47.5 L 51.8 51.8" />
+        <path
+            fill="#000000"
+            fill-opacity="0.1"
+            stroke="#FBBF24"
+            stroke-width="3"
+            stroke-linecap="round"
+            d="M 12.2 51.8 L 16.5 47.5" />
+        <path
+            fill="#000000"
+            fill-opacity="0.1"
+            stroke="#FBBF24"
+            stroke-width="3"
+            stroke-linecap="round"
+            d="M 47.5 16.5 L 51.8 12.2" />
+        <path
+            fill="#FBBF24"
+            d="M 32 14 C 41.941125497 14 50 22.058874503 50 32 C 50 41.941125497 41.941125497 50 32 50 C 22.058874503 50 14 41.941125497 14 32 C 14 22.058874503 22.058874503 14 32 14 Z" />
+    </g>
+
+    <!-- 3. Earth (On Orbital Path) -->
+    <g transform="translate(5, 40) translate(32, 32) scale(0.20, 0.20) translate(-32, -32)">
+        <!-- Planet Body -->
+        <path
+            fill="#0EA5E9"
+            d="M 32 2 C 48.5685424949 2 62 15.4314575051 62 32 C 62 48.5685424949 48.5685424949 62 32 62 C 15.4314575051 62 2 48.5685424949 2 32 C 2 15.4314575051 15.4314575051 2 32 2 Z" />
+        <path
+            fill="#22C55E"
+            d="M 12 26 C 14 20, 22 18, 24 14 C 26 12, 22 8, 28 8 C 30 10, 27 15, 30 18 C 28 22, 24 24, 20 28 C 17 29, 14 30, 12 26 Z" />
+        <path
+            fill="#22C55E"
+            d="M 21 33 C 26 31, 29 35, 27 41 C 25 46, 22 51, 20 54 C 18 52, 17 44, 19 39 C 19 36, 18 34, 21 33 Z" />
+        <path
+            fill="#22C55E"
+            d="M 34 10 C 38 8, 48 10, 52 14 C 55 17, 50 22, 53 26 C 47 28, 42 24, 38 24 C 35 22, 36 17, 34 10 Z" />
+        <path
+            fill="#22C55E"
+            d="M 34 27 C 42 26, 49 29, 50 35 C 47 42, 43 47, 39 49 C 36 47, 37 40, 34 38 C 32 35, 33 30, 34 27 Z" />
+        <path
+            stroke="#0284C7"
+            stroke-width="2"
+            d="M 32 2 C 48.5685424949 2 62 15.4314575051 62 32 C 62 48.5685424949 48.5685424949 62 32 62 C 15.4314575051 62 2 48.5685424949 2 32 C 2 15.4314575051 15.4314575051 2 32 2 Z"
+            fill="none" />
+    </g>
+
+    <!-- 4. Moon (Eclipsed around Earth) -->
+    <g transform="translate(24, 40) translate(32, 32) rotate(-25) scale(0.13, 0.13) translate(-32, -32)">
+        <path
+            fill="#E2E8F0"
+            stroke="#94A3B8"
+            stroke-width="2"
+            d="M 32 4 C 47.4639729953 4 60 16.5360270047 60 32 C 60 47.4639729953 47.4639729953 60 32 60 C 16.5360270047 60 4 47.4639729953 4 32 C 4 16.5360270047 16.5360270047 4 32 4 Z" />
+        <path
+            fill="#CBD5E1"
+            d="M 20 19 C 22.7614237492 19 25 21.2385762508 25 24 C 25 26.7614237492 22.7614237492 29 20 29 C 17.2385762508 29 15 26.7614237492 15 24 C 15 21.2385762508 17.2385762508 19 20 19 Z" />
+        <path
+            fill="#CBD5E1"
+            d="M 38 14.5 C 39.9329966244 14.5 41.5 16.0670033756 41.5 18 C 41.5 19.9329966244 39.9329966244 21.5 38 21.5 C 36.0670033756 21.5 34.5 19.9329966244 34.5 18 C 34.5 16.0670033756 36.0670033756 14.5 38 14.5 Z" />
+        <path
+            fill="#CBD5E1"
+            d="M 42 30 C 45.313708499 30 48 32.686291501 48 36 C 48 39.313708499 45.313708499 42 42 42 C 38.686291501 42 36 39.313708499 36 36 C 36 32.686291501 38.686291501 30 42 30 Z" />
+        <path
+            fill="#CBD5E1"
+            d="M 26 38 C 28.2091389993 38 30 39.7908610007 30 42 C 30 44.2091389993 28.2091389993 46 26 46 C 23.7908610007 46 22 44.2091389993 22 42 C 22 39.7908610007 23.7908610007 38 26 38 Z" />
+        <path
+            fill="#CBD5E1"
+            d="M 16 33.5 C 17.3807118746 33.5 18.5 34.6192881254 18.5 36 C 18.5 37.3807118746 17.3807118746 38.5 16 38.5 C 14.6192881254 38.5 13.5 37.3807118746 13.5 36 C 13.5 34.6192881254 14.6192881254 33.5 16 33.5 Z" />
+        <path
+            fill="#CBD5E1"
+            d="M 34 47 C 35.1045694997 47 36 47.8954305003 36 49 C 36 50.1045694997 35.1045694997 51 34 51 C 32.8954305003 51 32 50.1045694997 32 49 C 32 47.8954305003 32.8954305003 47 34 47 Z" />
+    </g>
+
+</svg>
