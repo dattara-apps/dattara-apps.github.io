@@ -1,0 +1,18 @@
+<svg
+    xmlns="http://www.w3.org/2000/svg"
+    viewBox="0 0 108 108"
+    id="vector">
+    <rect width="108" height="108" fill="#FFFFFF" />
+    <path
+        id="path_2"
+        d="M 38 72 L 38 40 C 38 38.409 38.633 36.882 39.757 35.757 C 40.882 34.633 42.409 34 44 34 L 58 34 C 61.181 34 64.236 35.265 66.485 37.515 C 68.735 39.764 70 42.819 70 46 L 70 78"
+        fill="#00000000"
+        stroke="#111111"
+        stroke-width="6"
+        stroke-linecap="round"
+        stroke-linejoin="round"/>
+    <path
+        id="path_3"
+        d="M 38 84 L 70 84 L 70 87 L 38 87 Z"
+        fill="#111111"/>
+</svg>

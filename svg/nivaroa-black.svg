@@ -1,0 +1,9 @@
+<?xml version="1.0" encoding="utf-8" standalone="no"?>
+<svg xmlns:android="http://schemas.android.com/apk/res/android" height="108" width="108" xmlns="http://www.w3.org/2000/svg">
+    <!-- Background -->
+    <rect width="108" height="108" fill="#000000" />
+    <!-- Stylized lowercase 'n' outline for Dark Theme (White strokes #FFFFFF) -->
+    <path d="M38,72 V40 a6,6 0 0,1 6,-6 h14 a12,12 0 0,1 12,12 v32" fill="#000000" fill-opacity="0.0" stroke="#FFFFFF" stroke-linecap="round" stroke-linejoin="round" stroke-width="6"/>
+    <!-- Separated bottom horizontal line accent (White #FFFFFF) -->
+    <path d="M38,84 h32 v3 H38 z" fill="#FFFFFF"/>
+</svg>
