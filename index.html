@@ -505,6 +505,27 @@
             display: block;
         }
 
+        .btn-coming-soon {
+            background: transparent;
+            color: var(--text-color);
+            border: 1px solid var(--text-color);
+            padding: 12px 28px;
+            font-family: inherit;
+            letter-spacing: 2px;
+            text-transform: uppercase;
+            font-size: 0.85rem;
+            transition: all 0.3s;
+            cursor: pointer;
+            border-radius: 4px;
+            text-decoration: none;
+            display: inline-block;
+        }
+
+        .btn-coming-soon:hover {
+            background: var(--text-color);
+            color: var(--bg-color);
+        }
+
         footer {
             padding: 30px 20px;
             text-align: center;
@@ -561,6 +582,11 @@
                                     <img src="svg/dinapanchang.svg" alt="Dina Panchang" class="theme-dark-only">
                                     <span>DINA PANCHANG</span>
                                 </a>
+                                <a href="nivaroa/" class="dropdown-item">
+                                    <img src="svg/nivaroa-black.svg" alt="Nivaroa" class="theme-light-only">
+                                    <img src="svg/nivaroa.svg" alt="Nivaroa" class="theme-dark-only">
+                                    <span>NIVAROA</span>
+                                </a>
                             </div>
                         </div>
                         <div class="dropdown">
@@ -599,6 +625,7 @@
                     <div class="mobile-dropdown-items">
                         <a href="absent/">Absent Launcher</a>
                         <a href="dinapanchang/">Dina Panchang</a>
+                        <a href="nivaroa/">Nivaroa Launcher</a>
                     </div>
                 </div>
                 <div>
@@ -642,6 +669,20 @@
                         <div class="app-info-text">
                             <strong>Dina Panchang &rarr;</strong>
                             <p>Advanced Hindu Calendar & Astrological Engine.</p>
+                        </div>
+                    </a>
+                </div>
+
+                <a href="nivaroa/" class="app-banner-link" style="margin-top: 40px;">
+                    <img src="nivaroa/mock/nivaroa-banner.webp" alt="Nivaroa Launcher">
+                </a>
+
+                <div class="app-info-row">
+                    <a href="nivaroa/" class="btn-coming-soon">Coming Soon</a>
+                    <a href="nivaroa/" class="app-info-link">
+                        <div class="app-info-text">
+                            <strong>Nivaroa Launcher &rarr;</strong>
+                            <p>Immersive live weather skies, ambient canvases, and interactive widgets.</p>
                         </div>
                     </a>
                 </div>
