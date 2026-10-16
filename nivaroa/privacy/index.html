@@ -308,7 +308,7 @@
                     <h2>1. Information Collection & Permissions</h2>
                     <p>To provide immersive weather canvases, interactive widgets, and launcher functionality, NIVAROA requests specific device permissions:</p>
                     <ul>
-                        <li>• <span class="highlight">Location Data (Coarse/Fine)</span>: Used exclusively to fetch local weather forecasts from MET Norway to render live weather particle skies and celestial solar phases. Coordinates are transmitted securely and never stored or shared for advertising.</li>
+                        <li>• <span class="highlight">Location Data (Coarse Location Only)</span>: Used exclusively to fetch approximate local weather forecasts from MET Norway via coarse location (`ACCESS_COARSE_LOCATION`) to render live weather particle skies and celestial solar phases. Coordinates are transmitted securely and never stored or shared for advertising.</li>
                         <li>• <span class="highlight">Installed Packages (QUERY_ALL_PACKAGES)</span>: Queried locally on your device to display your installed applications in the categorized app drawer and dock.</li>
                         <li>• <span class="highlight">Calendar Events (READ_CALENDAR)</span>: Used locally to display upcoming schedule events in the interactive Month Calendar and Hourly Weather Timeline widgets. Calendar data is never uploaded or transmitted.</li>
                         <li>• <span class="highlight">Biometric Authentication (USE_BIOMETRIC)</span>: Used locally for the Biometric Hidden App Vault to secure sensitive apps behind your device's fingerprint or face unlock.</li>

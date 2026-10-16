@@ -375,7 +375,7 @@
                     <h2>Information Collection and Use</h2>
                     <p>For a better experience, while using our Service, we may require you to provide us with certain personally identifiable information, including but not limited to:</p>
                     <ul>
-                        <li><span class="highlight">Location Data:</span> Dina Panchang requests access to device location (`ACCESS_FINE_LOCATION` or `ACCESS_COARSE_LOCATION`) solely to calculate accurate astronomical positions, sunrise/sunset times, and local Panchang muhurtas for your precise geographic coordinates. Location data is processed entirely on your device and is never transmitted to external servers or shared with third parties.</li>
+                        <li><span class="highlight">Location Data (Coarse Location Only):</span> Dina Panchang requests access to approximate device location (`ACCESS_COARSE_LOCATION`) solely to calculate regional astronomical positions, sunrise/sunset times, and local Panchang muhurtas. Location data is processed entirely on your device and is never transmitted to external servers or shared with third parties.</li>
                         <li><span class="highlight">Diagnostic & Crash Logs:</span> Anonymous error logs and performance diagnostics may be collected via standard app store analytics to help us improve stability and fix bugs.</li>
                     </ul>
                 </section>
@@ -383,7 +383,7 @@
                 <section>
                     <h2>Permissions Used</h2>
                     <ul>
-                        <li><span class="highlight">ACCESS_FINE_LOCATION / ACCESS_COARSE_LOCATION:</span> Required for calculating local astronomical timings and regional Panchang.</li>
+                        <li><span class="highlight">ACCESS_COARSE_LOCATION:</span> Required for calculating regional astronomical timings and Panchang.</li>
                         <li><span class="highlight">SCHEDULE_EXACT_ALARM / POST_NOTIFICATIONS:</span> Used to schedule timely notifications for festivals and daily Panchang alerts.</li>
                         <li><span class="highlight">INTERNET:</span> Required for fetching ephemeris calculation updates, timezone data, and city search queries.</li>
                     </ul>
