@@ -1,0 +1,541 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>AirgapMail | Privacy Policy</title>
+    <meta name="description" content="Privacy Policy for AirgapMail by Dattara Apps. Details on our 100% on-device architecture, zero cloud servers, and Google Limited Use compliance.">
+
+    <link rel="icon" type="image/svg+xml" href="../../svg/airgapmail-black.svg" id="favicon">
+    <script>
+        (function() {
+            try {
+                const theme = localStorage.getItem('theme') || 'dark';
+                document.documentElement.setAttribute('data-theme', theme);
+                const favicon = document.getElementById('favicon');
+                if (favicon) {
+                    favicon.href = theme === 'light' ? '../../svg/airgapmail.svg' : '../../svg/airgapmail-black.svg';
+                }
+            } catch (e) {
+                document.documentElement.setAttribute('data-theme', 'dark');
+            }
+        })();
+    </script>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700&display=swap" rel="stylesheet">
+    <style>
+        :root {
+            --bg-color: #fff;
+            --text-color: #000;
+            --accent-color: #f1f5f9;
+            --secondary-text: #64748b;
+            --border-color: #e2e8f0;
+            --primary: #10b981;
+            --secondary: #059669;
+            --card-bg: #f8fafc;
+        }
+
+        [data-theme="dark"] {
+            --bg-color: #000;
+            --text-color: #fff;
+            --accent-color: #1e293b;
+            --secondary-text: #94a3b8;
+            --border-color: #334155;
+            --primary: #34d399;
+            --secondary: #059669;
+            --card-bg: #0f172a;
+        }
+
+        * {
+            box-sizing: border-box;
+            -webkit-tap-highlight-color: transparent;
+        }
+
+        body, html {
+            background: var(--bg-color);
+            color: var(--text-color);
+            font-family: 'Inter', sans-serif;
+            margin: 0;
+            padding: 0;
+            min-height: 100vh;
+            width: 100%;
+            display: flex;
+            justify-content: center;
+            transition: background 0.3s, color 0.3s;
+        }
+
+        .app-container {
+            width: 100%;
+            max-width: 900px;
+            padding: 20px 20px 60px;
+            display: flex;
+            flex-direction: column;
+        }
+
+        header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 20px 0;
+            border-bottom: 1px solid var(--border-color);
+            margin-bottom: 30px;
+        }
+
+        .logo-container {
+            display: flex;
+            align-items: center;
+            gap: 12px;
+            text-decoration: none;
+            color: inherit;
+        }
+
+        .logo-img { height: 32px; width: auto; }
+        .brand-name-text { font-weight: 700; font-size: 20px; letter-spacing: -0.5px; }
+
+        nav {
+            display: flex;
+            gap: 24px;
+            align-items: center;
+        }
+
+        nav a {
+            text-decoration: none;
+            color: var(--text-color);
+            font-size: 10px;
+            font-weight: 600;
+            letter-spacing: 1px;
+            transition: color 0.2s;
+            display: block;
+            line-height: 1;
+        }
+
+        nav a:hover {
+            color: var(--primary);
+        }
+
+        .header-right {
+            display: flex;
+            align-items: center;
+            gap: 20px;
+        }
+
+        .theme-toggle {
+            background: transparent;
+            border: none;
+            color: var(--text-color);
+            width: auto;
+            height: auto;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            cursor: pointer;
+            border-radius: 8px;
+            font-size: 1.2rem;
+            transition: all 0.2s;
+            flex-shrink: 0;
+            padding: 0;
+            margin-left: 5px;
+        }
+
+        .theme-toggle:active {
+            transform: scale(0.95);
+        }
+
+        .btn-get-started {
+            background: linear-gradient(90deg, var(--primary), var(--secondary));
+            color: white;
+            border: none;
+            padding: 8px 18px;
+            border-radius: 20px;
+            font-weight: 700;
+            font-size: 10px;
+            cursor: pointer;
+            transition: opacity 0.2s;
+            text-transform: uppercase;
+            line-height: 1.2;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+
+        @media (max-width: 1024px) {
+            nav { display: none; }
+            .menu-toggle { display: flex !important; }
+            .btn-get-started { display: none; }
+        }
+
+        .menu-toggle {
+            display: none;
+            flex-direction: column;
+            gap: 4px;
+            cursor: pointer;
+            padding: 5px;
+            z-index: 1002;
+        }
+
+        .menu-toggle span {
+            width: 20px;
+            height: 2px;
+            background-color: var(--text-color);
+            transition: all 0.3s;
+        }
+
+        .mobile-nav {
+            position: fixed;
+            top: 0;
+            right: -100%;
+            width: 100%;
+            height: 100vh;
+            background-color: var(--bg-color);
+            z-index: 1004;
+            display: flex;
+            flex-direction: column;
+            padding: 120px 40px 40px;
+            gap: 30px;
+            transition: right 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+            font-family: 'Inter', sans-serif;
+            overflow-y: auto;
+        }
+
+        .mobile-nav.active {
+            right: 0;
+        }
+
+        .mobile-nav a {
+            text-decoration: none;
+            color: var(--text-color);
+            font-size: 24px;
+            font-weight: 700;
+            text-transform: uppercase;
+        }
+
+        .menu-toggle.active span:nth-child(1) { transform: translateY(6px) rotate(45deg); background-color: var(--primary); }
+        .menu-toggle.active span:nth-child(2) { opacity: 0; }
+        .menu-toggle.active span:nth-child(3) { transform: translateY(-6px) rotate(-45deg); background-color: var(--primary); }
+
+        h1 {
+            font-size: 2.2rem;
+            font-weight: 800;
+            margin-bottom: 10px;
+            letter-spacing: -0.5px;
+        }
+
+        .last-updated {
+            color: var(--secondary-text);
+            font-size: 0.85rem;
+            margin-bottom: 30px;
+        }
+
+        .notice-box {
+            background: var(--card-bg);
+            border-left: 4px solid var(--primary);
+            padding: 20px 24px;
+            border-radius: 0 12px 12px 0;
+            margin: 25px 0 35px;
+        }
+
+        .notice-box h3 {
+            margin: 0 0 10px 0;
+            font-size: 1rem;
+            color: var(--primary);
+        }
+
+        .notice-box p {
+            margin: 0;
+            font-size: 0.9rem;
+            line-height: 1.6;
+            color: var(--secondary-text);
+        }
+
+        .notice-box a {
+            color: var(--primary);
+            text-decoration: underline;
+        }
+
+        section {
+            margin-bottom: 35px;
+        }
+
+        h2 {
+            font-size: 1.3rem;
+            font-weight: 700;
+            margin-bottom: 15px;
+            color: var(--text-color);
+            border-bottom: 1px solid var(--border-color);
+            padding-bottom: 8px;
+        }
+
+        p, li {
+            font-size: 0.95rem;
+            line-height: 1.7;
+            color: var(--secondary-text);
+        }
+
+        ul {
+            padding-left: 20px;
+        }
+
+        li {
+            margin-bottom: 10px;
+        }
+
+        code {
+            background: var(--accent-color);
+            color: var(--text-color);
+            padding: 2px 6px;
+            border-radius: 4px;
+            font-size: 0.85rem;
+            font-family: monospace;
+        }
+
+        footer {
+            padding: 30px 20px;
+            text-align: center;
+            font-size: 0.65rem;
+            color: var(--secondary-text);
+            letter-spacing: 1px;
+            width: 100%;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            border-top: 1px solid var(--border-color);
+            margin-top: 50px;
+        }
+
+        .social-links {
+            display: flex;
+            gap: 25px;
+            justify-content: center;
+            margin: 20px 0;
+        }
+
+        .social-icon {
+            width: 20px;
+            height: 20px;
+            fill: var(--secondary-text);
+            transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+            cursor: pointer;
+        }
+
+        .social-icon:hover {
+            fill: var(--text-color);
+            transform: translateY(-2px);
+        }
+
+        .footer-copyright-line {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 8px;
+            opacity: 0.7;
+        }
+
+        .footer-logo-small {
+            height: 2.2em;
+            width: auto;
+        }
+
+        [data-theme="light"] .theme-dark-only { display: none; }
+        [data-theme="dark"] .theme-light-only { display: none; }
+    </style>
+</head>
+<body>
+
+    <div class="app-container">
+        <header>
+            <a href="../index.html" class="logo-container">
+                <img src="../../svg/airgapmail.svg" alt="AIRGAPMAIL" class="logo-img theme-light-only">
+                <img src="../../svg/airgapmail-black.svg" alt="AIRGAPMAIL" class="logo-img theme-dark-only">
+                <span class="brand-name-text">AIRGAPMAIL</span>
+            </a>
+
+            <div class="header-right">
+                <nav>
+                    <a href="../index.html">HOME</a>
+                    <a href="../privacy/">PRIVACY</a>
+                    <a href="../terms/">TERMS</a>
+                </nav>
+                <button class="btn-get-started" onclick="window.location.href='mailto:admin@dattara.app'">CONTACT</button>
+                <button class="theme-toggle" id="themeToggle" title="Toggle Theme">
+                    <span class="theme-light-only">●</span>
+                    <span class="theme-dark-only">○</span>
+                </button>
+                <div class="menu-toggle" id="menuToggle">
+                    <span></span>
+                    <span></span>
+                    <span></span>
+                </div>
+            </div>
+        </header>
+
+        <!-- Mobile Navigation -->
+        <div class="mobile-nav" id="mobileNav">
+            <a href="../index.html">Home</a>
+            <a href="../privacy/">Privacy</a>
+            <a href="../terms/">Terms</a>
+            <a href="mailto:admin@dattara.app" style="color: #3b82f6;">Contact</a>
+        </div>
+
+        <main>
+            <h1>Privacy Policy for AirgapMail</h1>
+            <div class="last-updated">Effective Date: October 18, 2026 | Application ID: <code>app.dattara.airgapmail</code></div>
+
+            <p>
+                At <strong>Dattara Apps</strong>, your digital privacy is our core engineering objective.
+                <strong>AirgapMail</strong> is built from the ground up as an <em>on-device email cleaner and security vault</em>.
+                This Privacy Policy outlines how AirgapMail handles data, our strict zero-server cloud architecture, and our compliance with Google API Services policies.
+            </p>
+
+            <div class="notice-box">
+                <h3>Google API Services User Data Policy & Limited Use Disclosure</h3>
+                <p>
+                    AirgapMail's use and transfer to any other app of information received from Google APIs will adhere to the
+                    <a href="https://developers.google.com/terms/api-services-user-data-policy" target="_blank" rel="noopener">Google API Services User Data Policy</a>,
+                    including the Limited Use requirements.
+                </p>
+            </div>
+
+            <section>
+                <h2>1. On-Device "Air-Gapped" Architecture (Zero Cloud Servers)</h2>
+                <p>
+                    Dattara Apps does <strong>NOT</strong> operate, maintain, or utilize any backend servers, intermediate proxies, tracking endpoints, or cloud databases for AirgapMail.
+                </p>
+                <ul>
+                    <li>All email indexing, newsletter detection, category classification, and cleanup rules occur <strong>100% locally on your Android device</strong>.</li>
+                    <li>No email body text, headers, senders, subjects, attachments, or OAuth authentication tokens are ever transmitted to Dattara Apps or any third-party server.</li>
+                    <li>Authentication and email modification network calls are transmitted over direct, encrypted TLS connections between your Android device and official provider endpoints (such as <code>https://gmail.googleapis.com</code> or official Microsoft Graph endpoints).</li>
+                </ul>
+            </section>
+
+            <section>
+                <h2>2. Google OAuth 2.0 & Gmail API Scope Usage</h2>
+                <p>
+                    AirgapMail utilizes Google OAuth 2.0 (AppAuth PKCE standard) to securely authenticate users directly with Google.
+                    We request the following Gmail API scopes:
+                </p>
+                <ul>
+                    <li>
+                        <code>https://www.googleapis.com/auth/gmail.modify</code> (Restricted Scope):
+                        Used solely on-device to execute email management actions—such as trashing, archiving, or marking promotional emails and unwanted newsletters—as explicitly commanded by you inside the app interface.
+                    </li>
+                    <li>
+                        <code>https://www.googleapis.com/auth/gmail.readonly</code>:
+                        Used solely on-device to scan message headers and unsubscribing links to surface clutter metrics and ghost subscription lists locally.
+                    </li>
+                </ul>
+            </section>
+
+            <section>
+                <h2>3. Absolute Restrictions: No Selling, No AI Training, No Third-Party Transfer</h2>
+                <p>
+                    In accordance with Google Limited Use requirements and our core ethos:
+                </p>
+                <ul>
+                    <li><strong>No Data Transfer:</strong> Your email data is never transferred to any third party.</li>
+                    <li><strong>No Data Selling:</strong> We never sell, rent, monetize, or trade your personal data or email contents under any circumstances.</li>
+                    <li><strong>No AI Model Training:</strong> Your email contents, headers, and metadata are <strong>NEVER</strong> used to train, fine-tune, or seed generalized artificial intelligence (AI) or machine learning (ML) models.</li>
+                    <li><strong>No Advertising Use:</strong> Email data is never accessed, processed, or targeted for advertising purposes.</li>
+                </ul>
+            </section>
+
+            <section>
+                <h2>4. Local Storage & Cryptographic Security</h2>
+                <p>
+                    To provide fast local search and offline rule execution:
+                </p>
+                <ul>
+                    <li>AirgapMail maintains a local Room database encrypted with <strong>SQLCipher</strong> (256-bit AES encryption).</li>
+                    <li>Cryptographic keys are managed securely by the hardware-backed <strong>Android KeyStore System</strong> (via AndroidX Security Crypto MasterKey).</li>
+                    <li>OAuth access and refresh tokens are stored in hardware-encrypted local preferences.</li>
+                </ul>
+            </section>
+
+            <section>
+                <h2>5. Data Retention, Sign-Out, and Deletion</h2>
+                <p>
+                    Because all data resides strictly on your local device:
+                </p>
+                <ul>
+                    <li><strong>In-App Sign-Out:</strong> Selecting "Sign Out" or "Disconnect Account" immediately revokes OAuth tokens and permanently wipes all local encrypted caches and rules for that account.</li>
+                    <li><strong>Application Uninstallation:</strong> Uninstalling AirgapMail from your Android device instantly and irreversibly destroys all local database tables, encryption keys, and app preferences.</li>
+                </ul>
+            </section>
+
+            <section>
+                <h2>6. Analytics and Optional Ad Services</h2>
+                <p>
+                    AirgapMail may incorporate standard Google Mobile Ads (AdMob) or Play Services SDKs strictly for app distribution and optional ad monetization. These SDKs operate independently and have <strong>ZERO access</strong> to your email accounts, messages, local SQLCipher database, or OAuth tokens.
+                </p>
+            </section>
+
+            <section>
+                <h2>7. Contact Information</h2>
+                <p>
+                    If you have any questions or security inquiries regarding this Privacy Policy or AirgapMail's architecture, please contact our engineering team at:
+                </p>
+                <p>
+                    <strong>Dattara Apps Security & Privacy Team</strong><br>
+                    Email: <a href="mailto:admin@dattara.app" style="color:var(--primary);">admin@dattara.app</a><br>
+                    Website: <a href="https://dattara.app" style="color:var(--primary);">https://dattara.app</a>
+                </p>
+            </section>
+        </main>
+
+        <footer>
+            <div class="social-links">
+                <!-- X (Twitter) -->
+                <a href="#" aria-label="X (Twitter)" target="_blank">
+                    <svg class="social-icon" viewBox="0 0 24 24"><path d="M18.244 2.25h3.308l-7.227 8.26 8.502 11.24H16.17l-5.214-6.817L4.99 21.75H1.68l7.73-8.835L1.254 2.25H8.08l4.713 6.231zm-1.161 17.52h1.833L7.084 4.126H5.117z"/></svg>
+                </a>
+                <!-- Instagram -->
+                <a href="#" aria-label="Instagram" target="_blank">
+                    <svg class="social-icon" viewBox="0 0 24 24"><path d="M12 2.163c3.204 0 3.584.012 4.85.07 3.252.148 4.771 1.691 4.919 4.919.058 1.265.069 1.645.069 4.849 0 3.205-.012 3.584-.069 4.849-.149 3.225-1.664 4.771-4.919 4.919-1.266.058-1.644.07-4.85.07-3.204 0-3.584-.012-4.849-.07-3.26-.149-4.771-1.699-4.919-4.92-.058-1.265-.07-1.644-.07-4.849 0-3.204.013-3.583.07-4.849.149-3.227 1.664-4.771 4.919-4.919 1.266-.057 1.645-.069 4.849-.069zm0-2.163c-3.259 0-3.667.014-4.947.072-4.358.2-6.78 2.618-6.98 6.98-.059 1.281-.073 1.689-.073 4.948 0 3.259.014 3.668.072 4.947.2 4.358 2.618 6.78 6.98 6.98 1.281.058 1.689.072 4.948.072 3.259 0 3.668-.014 4.948-.072 4.354-.2 6.782-2.618 6.979-6.98.059-1.28.073-1.689.073-4.948 0-3.259-.014-3.667-.072-4.947-.196-4.354-2.617-6.78-6.979-6.98-1.281-.059-1.69-.073-4.949-.073zm0 5.838c-3.403 0-6.162 2.759-6.162 6.162s2.759 6.163 6.162 6.163 6.162-2.759 6.162-6.163-2.759-6.162-6.162-6.162zm0 10.162c-2.209 0-4-1.79-4-4 0-2.209 1.791-4 4-4s4 1.791 4 4c0 2.21-1.791 4-4 4zm6.406-11.845c-.796 0-1.441.645-1.441 1.44s.645 1.44 1.441 1.44c.795 0 1.439-.645 1.439-1.44s-.644-1.44-1.439-1.44z"/></svg>
+                </a>
+                <!-- YouTube -->
+                <a href="https://www.youtube.com/@DattaraApps" aria-label="YouTube" target="_blank">
+                    <svg class="social-icon" viewBox="0 0 24 24"><path d="M23.498 6.186a3.016 3.016 0 0 0-2.122-2.136C19.505 3.545 12 3.545 12 3.545s-7.505 0-9.377.505A3.017 3.017 0 0 0 .502 6.186C0 8.07 0 12 0 12s0 3.93.502 5.814a3.016 3.016 0 0 0 2.122 2.136c1.871.505 9.376.505 9.376.505s7.505 0 9.377-.505a3.015 3.015 0 0 0 2.122-2.136C24 15.93 24 12 24 12s0-3.93-.502-5.814zM9.545 15.568V8.432L15.818 12l-6.273 3.568z"/></svg>
+                </a>
+                <!-- GitHub -->
+                <a href="#" aria-label="GitHub" target="_blank">
+                    <svg class="social-icon" viewBox="0 0 24 24"><path d="M12 .297c-6.63 0-12 5.373-12 12 0 5.303 3.438 9.8 8.205 11.385.6.113.82-.258.82-.577 0-.285-.01-1.04-.015-2.04-3.338.724-4.042-1.61-4.042-1.61C4.422 18.07 3.633 17.7 3.633 17.7c-1.087-.744.084-.729.084-.729 1.205.084 1.838 1.236 1.838 1.236 1.07 1.835 2.809 1.305 3.495.998.108-.776.417-1.305.76-1.605-2.665-.3-5.466-1.332-5.466-5.93 0-1.31.465-2.38 1.235-3.22-.135-.303-.54-1.523.105-3.176 0 0 1.005-.322 3.3 1.23.96-.267 1.98-.399 3-.405 1.02.006 2.04.138 3 .405 2.28-1.552 3.285-1.23 3.285-1.23.645 1.653.24 2.873.12 3.176.765.84 1.23 1.91 1.23 3.22 0 4.61-2.805 5.625-5.475 5.92.42.36.81 1.096.81 2.22 0 1.606-.015 2.896-.015 3.286 0 .315.21.69.825.57C20.565 22.092 24 17.592 24 12.297c0-6.627-5.373-12-12-12"/></svg>
+                </a>
+                <!-- LinkedIn -->
+                <a href="#" aria-label="LinkedIn" target="_blank">
+                    <svg class="social-icon" viewBox="0 0 24 24"><path d="M19 0h-14c-2.761 0-5 2.239-5 5v14c0 2.761 2.239 5 5 5h14c2.762 0 5-2.239 5-5v-14c0-2.761-2.238-5-5-5zm-11 19h-3v-11h3v11zm-1.5-12.268c-.966 0-1.75-.79-1.75-1.764s.784-1.764 1.75-1.764 1.75.79 1.75 1.764-.783 1.764-1.75 1.764zm13.5 12.268h-3v-5.604c0-3.368-4-3.113-4 0v5.604h-3v-11h3v1.765c1.396-2.586 7-2.777 7 2.476v6.759z"/></svg>
+                </a>
+            </div>
+            <div class="footer-copyright-line">
+                <img src="../../svg/dattara-logo-small.svg" alt="Logo" class="footer-logo-small theme-light-only" loading="lazy" decoding="async">
+                <img src="../../svg/dattara-logo-small.svg" alt="Logo" class="footer-logo-small theme-dark-only" loading="lazy" decoding="async">
+                <span>&copy; 2026 DATTARA APPS. ALL RIGHTS RESERVED.</span>
+            </div>
+            <div style="margin-top: 10px;">
+                <a href="mailto:admin@dattara.app" style="color: #3b82f6; text-decoration: underline;">admin@dattara.app</a>
+            </div>
+        </footer>
+    </div>
+
+    <script>
+        const themeToggleBtn = document.getElementById('themeToggle');
+        themeToggleBtn.addEventListener('click', () => {
+            const currentTheme = document.documentElement.getAttribute('data-theme') || 'dark';
+            const newTheme = currentTheme === 'dark' ? 'light' : 'dark';
+            document.documentElement.setAttribute('data-theme', newTheme);
+            localStorage.setItem('theme', newTheme);
+            const favicon = document.getElementById('favicon');
+            if (favicon) {
+                favicon.href = newTheme === 'light' ? '../../svg/airgapmail.svg' : '../../svg/airgapmail-black.svg';
+            }
+        });
+
+        // Mobile menu toggle
+        const menuToggle = document.getElementById('menuToggle');
+        const mobileNav = document.getElementById('mobileNav');
+        if (menuToggle && mobileNav) {
+            menuToggle.addEventListener('click', () => {
+                mobileNav.classList.toggle('active');
+                menuToggle.classList.toggle('active');
+            });
+        }
+    </script>
+</body>
+</html>
