@@ -220,33 +220,7 @@
             header { padding: 15px 10px; }
         }
 
-        @media (max-width: 768px) {
-            .app-name {
-                letter-spacing: 2px;
-                font-size: clamp(1.2rem, 6vw, 1.8rem);
-                padding: 0 10px;
-                word-break: break-word;
-            }
-            .features-grid {
-                grid-template-columns: 1fr;
-                padding: 0 16px;
-                max-width: 100%;
-                box-sizing: border-box;
-            }
-            .feature-card {
-                padding: 20px 16px;
-                width: 100%;
-                box-sizing: border-box;
-            }
-            .slider-container {
-                width: min(280px, calc(100vw - 32px));
-                height: min(513px, calc((100vw - 32px) * 550 / 300));
-            }
-            .scroll-content {
-                padding: 15px 10px;
-                overflow-x: hidden;
-            }
-        }
+
 
         .menu-toggle {
             display: none;
@@ -471,6 +445,34 @@
 
         [data-theme="light"] .theme-dark-only { display: none; }
         [data-theme="dark"] .theme-light-only { display: none; }
+
+        @media (max-width: 768px) {
+            .app-name {
+                letter-spacing: 2px;
+                font-size: clamp(1.2rem, 6vw, 1.8rem);
+                padding: 0 10px;
+                word-break: break-word;
+            }
+            .features-grid {
+                grid-template-columns: 1fr;
+                padding: 0 16px;
+                max-width: 100%;
+                box-sizing: border-box;
+            }
+            .feature-card {
+                padding: 20px 16px;
+                width: 100%;
+                box-sizing: border-box;
+            }
+            .slider-container {
+                width: min(280px, calc(100vw - 32px));
+                height: min(513px, calc((100vw - 32px) * 550 / 300));
+            }
+            .scroll-content {
+                padding: 15px 10px;
+                overflow-x: hidden;
+            }
+        }
     </style>
 </head>
 <body>
