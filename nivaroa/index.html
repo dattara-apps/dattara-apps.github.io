@@ -222,6 +222,23 @@
             header { padding: 15px 10px; }
         }
 
+        @media (max-width: 768px) {
+            .features-grid {
+                grid-template-columns: 1fr;
+                padding: 0 12px;
+            }
+            .feature-card {
+                padding: 20px 16px;
+            }
+            .slider-container {
+                width: min(280px, calc(100vw - 32px));
+                height: min(513px, calc((100vw - 32px) * 550 / 300));
+            }
+            .scroll-content {
+                padding: 15px 10px;
+            }
+        }
+
         .menu-toggle {
             display: none;
             flex-direction: column;
@@ -391,6 +408,21 @@
             margin: 0;
             line-height: 1.5;
             font-family: 'Inter', sans-serif;
+        }
+
+        .play-store-badge {
+            display: inline-block;
+            transition: transform 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+        }
+
+        .play-store-badge:hover {
+            transform: scale(1.05);
+        }
+
+        .play-store-badge img {
+            height: 64px;
+            width: auto;
+            display: block;
         }
 
         .cta-section {
